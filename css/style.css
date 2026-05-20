@@ -10,6 +10,7 @@
   --border-dark: rgba(255, 255, 255, 0.1);
   --font-heading: 'Manrope', sans-serif;
   --font-body: 'Inter', sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
 }
 
 *, *::before, *::after {
@@ -452,9 +453,9 @@ ul {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-  background-size: 72px 72px;
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 58px 58px;
   mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 10%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 10%, transparent 70%);
 }
@@ -665,6 +666,14 @@ ul {
   letter-spacing: -0.02em;
 }
 
+.hero__description {
+  max-width: 620px;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: clamp(15px, 1.2vw, 18px);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
 .hero__buttons {
   display: flex;
   align-items: center;
@@ -797,6 +806,18 @@ ul {
   color: rgba(255, 255, 255, 0.58);
   font-size: 16px;
   line-height: 1.45;
+}
+
+.portfolio-card__type {
+  max-width: 420px;
+}
+
+.portfolio-card .portfolio-card__description {
+  max-width: 520px;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .portfolio-card__body a {
@@ -933,12 +954,14 @@ ul {
   min-height: 180px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 10px;
   padding: 28px;
   background: #fff;
 }
 
 .stat-card strong {
+  margin-bottom: auto;
   font-family: var(--font-heading);
   font-size: clamp(3rem, 6vw, 6rem);
   font-weight: 800;
@@ -952,6 +975,13 @@ ul {
   color: rgba(0, 0, 0, 0.48);
   font-size: 14px;
   line-height: 1.45;
+}
+
+.stat-card p {
+  max-width: 220px;
+  color: rgba(0, 0, 0, 0.38);
+  font-size: 12px;
+  line-height: 1.55;
 }
 
 .values-grid {
@@ -1228,6 +1258,14 @@ ul {
   margin-bottom: 24px;
 }
 
+.contact-form__note {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
 .reviews {
   padding-top: 112px;
 }
@@ -1236,40 +1274,86 @@ ul {
   margin-bottom: 64px;
 }
 
-.reviews__grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 18px;
-  align-items: start;
-}
-
-.review-card {
-  display: block;
+.reviews__empty {
+  position: relative;
+  min-height: 290px;
   overflow: hidden;
-  border-radius: 28px;
-  background: #fff;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.review-card:nth-child(even) {
-  margin-top: 48px;
-}
-
-.review-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.12);
-}
-
-.review-card img {
-  width: 100%;
-  height: auto;
-}
-
-.reviews__all {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(255, 255, 255, 0.07), transparent 28%),
+    linear-gradient(90deg, #0a0a0a, #151515 48%, #080808);
+  color: #fff;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin-top: 56px;
+  padding: 64px 28px;
+  text-align: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 30px 90px rgba(0, 0, 0, 0.12);
+}
+
+.reviews__empty::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(circle at 50% 45%, #000, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, #000, transparent 70%);
+  opacity: 0.5;
+}
+
+.reviews__badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 22px;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.56);
+  font-family: var(--font-code);
+  font-size: 10px;
+  letter-spacing: 0.42em;
+  line-height: 1;
+  text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.reviews__badge span {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.8);
+}
+
+.reviews__empty h3 {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.reviews__empty p {
+  position: relative;
+  z-index: 1;
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .cta {
@@ -1372,30 +1456,50 @@ ul {
 }
 
 .cta__visual {
+  position: relative;
   display: flex;
   justify-content: flex-end;
   min-width: 0;
+  perspective: 900px;
+}
+
+.cta__visual::after {
+  content: "";
+  position: absolute;
+  right: -7%;
+  bottom: -12%;
+  width: 56%;
+  height: 44%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  filter: blur(54px);
+  pointer-events: none;
 }
 
 .proposal-card {
   position: relative;
-  width: min(100%, 430px);
-  min-height: 310px;
+  z-index: 1;
+  width: min(100%, 440px);
+  min-height: 322px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  padding: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 34px;
+  padding: 34px 32px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 36px;
   background:
-    radial-gradient(circle at 82% 16%, rgba(255, 255, 255, 0.16), transparent 30%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.035) 48%, rgba(255, 255, 255, 0.08)),
+    radial-gradient(circle at 86% 14%, rgba(255, 255, 255, 0.22), transparent 28%),
+    radial-gradient(circle at 10% 86%, rgba(255, 255, 255, 0.1), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.17), rgba(255, 255, 255, 0.035) 46%, rgba(255, 255, 255, 0.1)),
     #090909;
   box-shadow:
-    0 30px 90px rgba(0, 0, 0, 0.42),
+    0 34px 100px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(255, 255, 255, 0.035),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  transform-origin: 50% 58%;
+  will-change: transform;
   animation: proposalFloat 7s ease-in-out infinite;
 }
 
@@ -1403,12 +1507,14 @@ ul {
   content: "";
   position: absolute;
   inset: 1px;
-  border-radius: 33px;
+  border-radius: 35px;
   background:
-    radial-gradient(circle at 30% 18%, rgba(255, 255, 255, 0.13), transparent 26%),
-    linear-gradient(120deg, transparent 0 35%, rgba(255, 255, 255, 0.09) 48%, transparent 62%),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.026) 0 1px, transparent 1px 42px);
-  opacity: 0.78;
+    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.13), transparent 26%),
+    linear-gradient(120deg, transparent 0 36%, rgba(255, 255, 255, 0.11) 49%, transparent 64%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: auto, auto, 48px 48px, 48px 48px;
+  opacity: 0.82;
   pointer-events: none;
 }
 
@@ -1417,15 +1523,14 @@ ul {
   position: absolute;
   left: 28px;
   right: 28px;
-  top: 86px;
+  top: 91px;
   height: 1px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), transparent);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.06), transparent);
   pointer-events: none;
 }
 
 .proposal-card__topline,
-.proposal-card__body,
-.proposal-card__footer {
+.proposal-card__body {
   position: relative;
   z-index: 1;
 }
@@ -1435,10 +1540,10 @@ ul {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.54);
   font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
@@ -1450,21 +1555,21 @@ ul {
 
 .proposal-card__topline > span:first-child::before {
   content: "";
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.36);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.48);
 }
 
 .proposal-card__status {
-  padding: 8px 13px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.09);
-  color: rgba(255, 255, 255, 0.78);
-  letter-spacing: 0.08em;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 0.075em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.13), 0 12px 34px rgba(0, 0, 0, 0.2);
 }
 
 .proposal-card__body {
@@ -1474,13 +1579,13 @@ ul {
 .proposal-card__body h3 {
   max-width: 350px;
   font-family: var(--font-heading);
-  font-size: clamp(1.85rem, 2.15vw, 2.45rem);
+  font-size: clamp(2.05rem, 2.45vw, 2.78rem);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.052em;
+  line-height: 0.98;
+  letter-spacing: -0.065em;
   color: #fff;
   text-wrap: balance;
-  text-shadow: 0 12px 34px rgba(255, 255, 255, 0.08);
+  text-shadow: 0 16px 42px rgba(255, 255, 255, 0.12);
 }
 
 .proposal-card__button {
@@ -1490,23 +1595,24 @@ ul {
   align-self: flex-start;
   gap: 10px;
   max-width: 100%;
-  margin-top: 18px;
-  padding: 11px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 22px;
+  padding: 13px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.055);
-  color: rgba(255, 255, 255, 0.62);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.035));
+  color: rgba(255, 255, 255, 0.66);
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.01em;
-  transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
 
 .proposal-card__button:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.26);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.06));
   color: rgba(255, 255, 255, 0.86);
 }
 
@@ -1517,33 +1623,16 @@ ul {
 
 .proposal-card__button::before {
   content: "";
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   flex: 0 0 auto;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.62);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.34);
 }
 
 .proposal-card__button span {
   min-width: 0;
-}
-
-.proposal-card__footer {
-  display: grid;
-  grid-template-columns: 1fr 0.52fr 0.18fr;
-  gap: 9px;
-  align-items: center;
-  opacity: 0.78;
-}
-
-.proposal-card__footer span {
-  height: 5px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.proposal-card__footer span:first-child {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.16));
 }
 
 @keyframes proposalFloat {
@@ -1651,19 +1740,15 @@ ul {
     max-width: 760px;
   }
 
-  .reviews__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .cta__inner {
     grid-template-columns: minmax(0, 1fr) minmax(300px, 0.55fr);
     gap: 48px;
   }
 
   .proposal-card {
-    min-height: 280px;
-    padding: 24px;
-    border-radius: 30px;
+    min-height: 300px;
+    padding: 28px;
+    border-radius: 32px;
   }
 }
 
@@ -1770,8 +1855,7 @@ ul {
   .portfolio-card__image,
   .services__grid,
   .stats-grid,
-  .values-grid,
-  .review-card {
+  .values-grid {
     border-radius: 24px;
   }
 
@@ -1820,13 +1904,14 @@ ul {
     padding: 0;
   }
 
-  .reviews__grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+  .reviews .section-title {
+    margin-bottom: 40px;
   }
 
-  .review-card:nth-child(even) {
-    margin-top: 0;
+  .reviews__empty {
+    min-height: 260px;
+    padding: 48px 20px;
+    border-radius: 22px;
   }
 
   .footer__inner {
@@ -1888,6 +1973,15 @@ ul {
 
   .proposal-card__topline {
     font-size: 11px;
+    gap: 12px;
+  }
+
+  .proposal-card__status {
+    padding: 9px 12px;
+  }
+
+  .proposal-card__body h3 {
+    font-size: clamp(2rem, 11vw, 2.65rem);
   }
 }
 
