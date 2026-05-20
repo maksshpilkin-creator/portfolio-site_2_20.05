@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>devbymax</title>
+  <meta name="description" content="Сайты, Telegram Mini Apps и боты под ключ">
+  <meta property="og:title" content="devbymax">
+  <meta property="og:description" content="Сайты, Telegram Mini Apps и боты под ключ">
+  <meta property="og:image" content="https://s10.iimage.su/s/02/gFdnVqNxzHGkuabCQzsa4ssT5FPo9Nnj2OF4kJoGP.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="cursor-ring"></div>
+  <div id="cursor-dot"></div>
+
+  <header class="header" id="header">
+    <div class="container-brand header__inner">
+      <a href="#" class="header__logo">devbymax</a>
+      <nav class="header__nav" aria-label="Основная навигация">
+        <a href="#portfolio" class="header__link">Портфолио</a>
+        <a href="#services" class="header__link">Услуги</a>
+        <a href="#about" class="header__link">О студии</a>
+        <a href="#contact" class="header__link">Контакты</a>
+      </nav>
+      <a href="https://t.me/devbymax" class="header__cta" target="_blank" rel="noopener">Получить консультацию</a>
+      <button class="header__burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="#portfolio" class="mobile-nav__link">Портфолио</a>
+    <a href="#services" class="mobile-nav__link">Услуги</a>
+    <a href="#about" class="mobile-nav__link">О студии</a>
+    <a href="#process" class="mobile-nav__link">Как работаем</a>
+    <a href="#contact" class="mobile-nav__link">Контакты</a>
+    <a href="https://t.me/devbymax" class="mobile-nav__cta" target="_blank" rel="noopener">Получить консультацию</a>
+  </div>
+
+  <main>
+    <section class="hero" aria-label="devbymax">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__aurora"></div>
+        <div class="hero__grid-lines"></div>
+        <div class="hero__grain"></div>
+        <div class="hero__mouse-glow" id="heroGlow"></div>
+      </div>
+
+      <div class="container-brand hero__inner">
+        <div class="hero__title-wrap" data-reveal>
+          <div class="hero__kicker">
+            <span class="hero__kicker-dot"></span>
+            Web Studio
+          </div>
+          <h1 class="hero__title" aria-label="devbymax">
+            <span class="hero__typing" aria-hidden="true">
+              <span style="--i: 0">d</span><span style="--i: 1">e</span><span style="--i: 2">v</span><span style="--i: 3">b</span><span style="--i: 4">y</span><span style="--i: 5">m</span><span style="--i: 6">a</span><span style="--i: 7">x</span>
+            </span>
+          </h1>
+        </div>
+
+        <div class="hero__bottom" data-reveal data-delay="1">
+          <p class="hero__subtitle">Сайты, Telegram Mini Apps<br>и боты под ключ.</p>
+          <div class="hero__buttons">
+            <a href="https://t.me/devbymax" class="btn btn--light" target="_blank" rel="noopener">Обсудить проект</a>
+            <a href="#portfolio" class="btn btn--outline-light">Портфолио</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>scroll</span>
+        <div class="hero__scroll-bar"><div class="hero__scroll-pip"></div></div>
+      </div>
+    </section>
+
+    <section class="portfolio section-light" id="portfolio">
+      <div class="container-brand">
+        <h2 class="section-title section-title--dark" data-reveal>Портфолио</h2>
+        <div class="portfolio__grid">
+          <article class="portfolio-card" data-reveal data-delay="1">
+            <a href="https://mm-web-wheat.vercel.app" class="portfolio-card__image" target="_blank" rel="noopener" aria-label="Смотреть проект МаниМедиа">
+              <img src="https://s10.iimage.su/s/02/gFdnVqNxzHGkuabCQzsa4ssT5FPo9Nnj2OF4kJoGP.png" alt="Проект МаниМедиа">
+            </a>
+            <div class="portfolio-card__body">
+              <div>
+                <h3>МаниМедиа</h3>
+                <p>Сайт и digital-платформа</p>
+              </div>
+              <a href="https://mm-web-wheat.vercel.app" target="_blank" rel="noopener">Смотреть проект</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-reveal data-delay="1">
+            <a href="https://clean-dog.vercel.app/" class="portfolio-card__image" target="_blank" rel="noopener" aria-label="Смотреть проект ЧистыйПёс">
+              <img src="img/ChatGPT Image 19 мая 2026 г., 23_40_04 (2).png" alt="Проект ЧистыйПёс">
+            </a>
+            <div class="portfolio-card__body">
+              <div>
+                <h3>ЧистыйПёс</h3>
+                <p>Салон груминга</p>
+              </div>
+              <a href="https://clean-dog.vercel.app/" target="_blank" rel="noopener">Смотреть проект</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-reveal data-delay="2">
+            <a href="https://atlanttech.pro" class="portfolio-card__image" target="_blank" rel="noopener" aria-label="Смотреть проект AtlantTech">
+              <img src="img/ChatGPT Image 19 мая 2026 г., 23_40_04 (1).png" alt="Проект AtlantTech">
+            </a>
+            <div class="portfolio-card__body">
+              <div>
+                <h3>Экспресс Оценка</h3>
+                <p>Оценка имущества всего снг</p>
+              </div>
+              <a href="https://atlanttech.pro" target="_blank" rel="noopener">Смотреть проект</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-reveal data-delay="2">
+            <a href="https://aurora-web-lake.vercel.app" class="portfolio-card__image" target="_blank" rel="noopener" aria-label="Смотреть проект Aurora">
+              <img src="https://s10.iimage.su/s/02/gmHw4n8x81LfZ3e6fGGMM1blk4KOTC3rhlZv6KP1I.png" alt="Проект Aurora">
+            </a>
+            <div class="portfolio-card__body">
+              <div>
+                <h3>Aurora</h3>
+                <p>Промо-сайт и визуальная подача</p>
+              </div>
+              <a href="https://aurora-web-lake.vercel.app" target="_blank" rel="noopener">Смотреть проект</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-reveal data-delay="1">
+            <a href="https://factura-salon.vercel.app/#" class="portfolio-card__image" target="_blank" rel="noopener" aria-label="Смотреть проект Салон Фактура">
+              <img src="img/ChatGPT Image 19 мая 2026 г., 23_40_07 (3).png" alt="Проект Салон Фактура">
+            </a>
+            <div class="portfolio-card__body">
+              <div>
+                <h3>Салон Фактура</h3>
+                <p>Премиальная парикмахерская</p>
+              </div>
+              <a href="https://factura-salon.vercel.app/#" target="_blank" rel="noopener">Смотреть проект</a>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-reveal data-delay="2">
+            <a href="https://v0-hair-salon-website-pearl-six.vercel.app/#" class="portfolio-card__image" target="_blank" rel="noopener" aria-label="Смотреть проект Колорист Кабаченко">
+              <img src="img/ChatGPT Image 19 мая 2026 г., 23_40_08 (4).png" alt="Проект Колорист Кабаченко">
+            </a>
+            <div class="portfolio-card__body">
+              <div>
+                <h3>Колорист Кабаченко</h3>
+                <p>Премиальный салон красоты</p>
+              </div>
+              <a href="https://v0-hair-salon-website-pearl-six.vercel.app/#" target="_blank" rel="noopener">Смотреть проект</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services section-light" id="services">
+      <div class="container-brand">
+        <div class="section-head" data-reveal>
+          <h2 class="section-title section-title--dark">Услуги</h2>
+          <p>Всё, что нужно для присутствия в интернете - от идеи до запуска.</p>
+        </div>
+        <div class="services__grid">
+          <a href="https://t.me/devbymax" class="service-card" target="_blank" rel="noopener" data-reveal data-delay="1">
+            <span>01</span>
+            <h3>Сайт</h3>
+            <p>Лендинг, корпоративный, магазин</p>
+          </a>
+          <a href="https://t.me/devbymax" class="service-card" target="_blank" rel="noopener" data-reveal data-delay="2">
+            <span>02</span>
+            <h3>Mini App</h3>
+            <p>Telegram: продажи, каталоги, квизы</p>
+          </a>
+          <a href="https://t.me/devbymax" class="service-card" target="_blank" rel="noopener" data-reveal data-delay="3">
+            <span>03</span>
+            <h3>Telegram-бот</h3>
+            <p>Заявки, заказы, автоматизация</p>
+          </a>
+          <a href="https://t.me/devbymax" class="service-card" target="_blank" rel="noopener" data-reveal data-delay="1">
+            <span>04</span>
+            <h3>Дизайн</h3>
+            <p>UI/UX, Figma, прототипирование</p>
+          </a>
+          <a href="https://t.me/devbymax" class="service-card" target="_blank" rel="noopener" data-reveal data-delay="2">
+            <span>05</span>
+            <h3>Трафик</h3>
+            <p>SEO, Яндекс, VK, Telegram Ads</p>
+          </a>
+          <a href="https://t.me/devbymax" class="service-card" target="_blank" rel="noopener" data-reveal data-delay="3">
+            <span>06</span>
+            <h3>Под ключ</h3>
+            <p>Сайт + бот + аналитика + поддержка</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about section-light" id="about">
+      <div class="container-brand">
+        <h2 class="section-title section-title--dark" data-reveal>О студии</h2>
+        <div class="stats-grid" data-reveal data-delay="1" data-count-stats>
+          <div class="stat-card">
+            <strong data-count-target="50" data-count-suffix="+">50+</strong>
+            <span>проектов запущено</span>
+          </div>
+          <div class="stat-card">
+            <strong data-count-target="7">7</strong>
+            <span>направлений работы</span>
+          </div>
+          <div class="stat-card">
+            <strong data-count-target="3" data-count-prefix="1-">1-3</strong>
+            <span>дня на простой сайт</span>
+          </div>
+          <div class="stat-card">
+            <strong data-count-target="24" data-count-suffix="/7">24/7</strong>
+            <span>на связи по проектам</span>
+          </div>
+        </div>
+        <div class="values-grid" data-reveal data-delay="2">
+          <article class="value-card">
+            <h3>Погружаемся в бизнес</h3>
+            <p>Перед разработкой разбираем задачу, аудиторию, продукт и путь клиента.</p>
+          </article>
+          <article class="value-card">
+            <h3>Работаем по этапам</h3>
+            <p>Фиксируем структуру, сроки, задачи и показываем промежуточный результат.</p>
+          </article>
+          <article class="value-card">
+            <h3>Думаем о конверсии</h3>
+            <p>Делаем не просто красивый интерфейс, а систему, которая ведёт к действию.</p>
+          </article>
+          <article class="value-card">
+            <h3>Поддерживаем после</h3>
+            <p>Помогаем с правками, техническими вопросами и развитием проекта.</p>
+          </article>
+        </div>
+      </div>
+      <div class="section-divider">
+        <svg
+          viewBox="0 0 1440 80"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0,0 C360,80 1080,80 1440,0 L1440,80 L0,80 Z" fill="currentColor"/>
+        </svg>
+      </div>
+    </section>
+
+    <section class="process" id="process" aria-label="Процесс работы">
+      <div class="container-brand">
+        <h2 class="process__heading" data-reveal>Как мы работаем</h2>
+        <div class="process__list">
+          <div class="process__row" data-reveal data-delay="1">
+            <span class="process__num">01</span>
+            <h3 class="process__name">Заявка</h3>
+            <p class="process__text">Вы рассказываете о задаче, нише и целях.</p>
+          </div>
+          <div class="process__row" data-reveal data-delay="2">
+            <span class="process__num">02</span>
+            <h3 class="process__name">Анализ</h3>
+            <p class="process__text">Изучаем проект и предлагаем оптимальный формат решения.</p>
+          </div>
+          <div class="process__row" data-reveal data-delay="3">
+            <span class="process__num">03</span>
+            <h3 class="process__name">Структура</h3>
+            <p class="process__text">Продумываем блоки, сценарии и пользовательский путь.</p>
+          </div>
+          <div class="process__row" data-reveal data-delay="4">
+            <span class="process__num">04</span>
+            <h3 class="process__name">Дизайн</h3>
+            <p class="process__text">Создаём современный интерфейс под вашу аудиторию.</p>
+          </div>
+          <div class="process__row" data-reveal data-delay="5">
+            <span class="process__num">05</span>
+            <h3 class="process__name">Разработка</h3>
+            <p class="process__text">Собираем сайт, Mini App, бота или комплексное решение.</p>
+          </div>
+          <div class="process__row" data-reveal data-delay="5">
+            <span class="process__num">06</span>
+            <h3 class="process__name">Запуск</h3>
+            <p class="process__text">Проверяем адаптивность, формы, аналитику и публикуем.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container-brand contact__inner">
+        <div class="contact__info" data-reveal>
+          <h2>Расскажите о проекте</h2>
+          <p>Каждый проект индивидуален. Оставьте заявку — мы свяжемся в течение нескольких часов и предложим оптимальное решение.</p>
+          <ul>
+            <li>Бесплатная консультация</li>
+            <li>Оценка за несколько часов</li>
+            <li>Без скрытых платежей</li>
+          </ul>
+        </div>
+        <form class="contact-form" data-reveal data-delay="1">
+          <div class="form-group">
+            <span class="form-label">Что нужно?</span>
+            <div class="chip-grid" data-chip-group>
+              <button type="button" class="chip is-active">Сайт / лендинг</button>
+              <button type="button" class="chip">Telegram Mini App</button>
+              <button type="button" class="chip">Telegram-бот</button>
+              <button type="button" class="chip">UI/UX-дизайн</button>
+              <button type="button" class="chip">SEO / реклама</button>
+              <button type="button" class="chip">Под ключ</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <span class="form-label">Бюджет</span>
+            <div class="chip-grid" data-chip-group>
+              <button type="button" class="chip is-active">До 10 000 ₽</button>
+              <button type="button" class="chip">10 000 – 30 000 ₽</button>
+              <button type="button" class="chip">30 000 – 70 000 ₽</button>
+              <button type="button" class="chip">Свыше 70 000 ₽</button>
+              <button type="button" class="chip">Обсудим</button>
+            </div>
+          </div>
+          <div class="form-grid">
+            <label>
+              <span>Имя</span>
+              <input type="text" name="name" autocomplete="name">
+            </label>
+            <label>
+              <span>Telegram / телефон</span>
+              <input type="text" name="contact" autocomplete="tel">
+            </label>
+          </div>
+          <label class="form-message">
+            <span>О проекте</span>
+            <textarea name="message" rows="5"></textarea>
+          </label>
+          <a href="https://t.me/devbymax" class="btn btn--dark btn--full" target="_blank" rel="noopener">Отправить заявку</a>
+        </form>
+      </div>
+    </section>
+
+    <section class="reviews section-light" id="reviews">
+      <div class="container-brand">
+        <span class="section-kicker" data-reveal>Отзывы</span>
+        <h2 class="section-title section-title--dark" data-reveal data-delay="1">Что говорят клиенты</h2>
+        <div class="reviews__grid">
+          <a href="https://t.me/devbymax" class="review-card" target="_blank" rel="noopener" data-reveal data-delay="1">
+            <img src="https://s10.iimage.su/s/02/giDvru5xuzSiySMbCVL4qWEoFvvYEyO0C29YZ1Str.png" alt="Отзыв клиента 1">
+          </a>
+          <a href="https://t.me/devbymax" class="review-card" target="_blank" rel="noopener" data-reveal data-delay="2">
+            <img src="https://s10.iimage.su/s/02/g2wnhXIxRHXJIlmgpz7X5hQlDhEvkVb7bUJCJ4Yt9.png" alt="Отзыв клиента 2">
+          </a>
+          <a href="https://t.me/devbymax" class="review-card" target="_blank" rel="noopener" data-reveal data-delay="3">
+            <img src="https://s10.iimage.su/s/02/g7DNKtlx3pRdCPv7ezt10dd8i8CGVT6Qcl0lG8Jws.png" alt="Отзыв клиента 3">
+          </a>
+          <a href="https://t.me/devbymax" class="review-card" target="_blank" rel="noopener" data-reveal data-delay="4">
+            <img src="https://s10.iimage.su/s/02/gsYU9k3xNtnfAYKzmUpsMbozQor0ACzEjP3Veec3Y.png" alt="Отзыв клиента 6">
+          </a>
+          <a href="https://t.me/devbymax" class="review-card" target="_blank" rel="noopener" data-reveal data-delay="5">
+            <img src="https://s10.iimage.su/s/02/gN3YjogxhfChfzeWq6a5HsRp1z0TIy3jE7KL4yzTy.png" alt="Отзыв клиента 7">
+          </a>
+        </div>
+        <div class="reviews__all" data-reveal>
+          <a href="https://t.me/devbymax" class="btn btn--outline-dark" target="_blank" rel="noopener">Все отзывы</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="cta">
+      <div class="cta__bg" aria-hidden="true"></div>
+      <div class="container-brand cta__inner">
+        <div class="cta__content" data-reveal>
+          <h2>Запустим сайт, который работает на ваш бизнес</h2>
+          <p>Продуманная структура, сильный визуал и понятный путь к заявке.</p>
+          <div class="cta__buttons">
+            <a href="#contact" class="btn btn--light cta__primary">Обсудить проект</a>
+            <a href="https://t.me/devbymax" class="btn btn--outline-light cta__secondary" target="_blank" rel="noopener">Написать в Telegram</a>
+          </div>
+          <span class="cta__note">Ответим в течение дня &middot; Подскажем лучший формат</span>
+        </div>
+
+        <div class="cta__visual" data-reveal data-delay="1">
+          <div class="proposal-card">
+            <div class="proposal-card__topline">
+              <span>НОВЫЙ ПРОЕКТ</span>
+              <span class="proposal-card__status">ПОД КЛЮЧ</span>
+            </div>
+            <div class="proposal-card__body">
+              <h3>Напишите в Telegram — обсудим ваш проект</h3>
+              <a href="https://t.me/devbymax" class="proposal-card__button" target="_blank" rel="noopener"><span>Написать в телеграмм</span></a>
+            </div>
+            <div class="proposal-card__footer">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container-brand footer__inner">
+      <a href="#" class="footer__logo">devbymax</a>
+      <span>© 2026 devbymax</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
