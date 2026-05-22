@@ -1,0 +1,86 @@
+.about {
+  position: relative;
+  padding-top: 80px;
+}
+
+.about .section-title {
+  margin-bottom: 64px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  background: var(--border);
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 28px;
+  background: #fff;
+}
+
+.stat-card strong {
+  margin-bottom: auto;
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  color: #111;
+}
+
+.stat-card span {
+  max-width: 150px;
+  color: rgba(0, 0, 0, 0.48);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.stat-card p {
+  max-width: 220px;
+  color: rgba(0, 0, 0, 0.38);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  background: var(--border);
+}
+
+.value-card {
+  min-height: 230px;
+  padding: 28px;
+  background: var(--card-bg);
+}
+
+.value-card h3 {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #111;
+  margin-bottom: 18px;
+}
+
+.value-card p {
+  color: rgba(0, 0, 0, 0.52);
+  font-size: 14px;
+  line-height: 1.65;
+}
+

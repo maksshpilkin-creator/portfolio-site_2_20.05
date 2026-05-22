@@ -1,0 +1,14 @@
+{
+  "name": "devbymax-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/tools/check-js.mjs",
+    "typecheck": "tsc --noEmit",
+    "validate": "npm run check && npm run typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

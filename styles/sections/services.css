@@ -1,0 +1,64 @@
+.services {
+  padding-top: 80px;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 32px;
+  background: var(--border);
+}
+
+.service-card {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+  background: var(--card-bg);
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  background: #111;
+  color: #fff;
+}
+
+.service-card span {
+  color: rgba(0, 0, 0, 0.35);
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.25s ease;
+}
+
+.service-card:hover span {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.service-card h3 {
+  margin-top: auto;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 4.4rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  color: inherit;
+}
+
+.service-card p {
+  margin-top: 16px;
+  max-width: 280px;
+  color: rgba(0, 0, 0, 0.55);
+  font-size: 15px;
+  line-height: 1.5;
+  transition: color 0.25s ease;
+}
+
+.service-card:hover p {
+  color: rgba(255, 255, 255, 0.65);
+}
+

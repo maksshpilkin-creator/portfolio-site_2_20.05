@@ -1,0 +1,20 @@
+import { siteContent } from '../data/site-content.js';
+import { initChips } from './modules/chips.js';
+import { initContactForm } from './modules/contact-form.js';
+import { initCountUp } from './modules/count-up.js';
+import { initCustomCursor } from './modules/cursor.js';
+import { initHeader } from './modules/header.js';
+import { initHeroGlow } from './modules/hero-glow.js';
+import { renderContent } from './modules/render-content.js';
+import { initReveal } from './modules/reveal.js';
+import { initSmoothAnchorScroll } from './modules/smooth-scroll.js';
+
+renderContent(siteContent);
+initCustomCursor();
+initHeader();
+initReveal();
+initSmoothAnchorScroll();
+initCountUp();
+initHeroGlow();
+initChips();
+initContactForm(siteContent);

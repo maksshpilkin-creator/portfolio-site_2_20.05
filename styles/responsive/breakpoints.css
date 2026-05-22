@@ -1,0 +1,403 @@
+@media (min-width: 768px) {
+  .container-brand {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-brand {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+@media (max-width: 1180px) {
+  .header__nav {
+    display: none;
+  }
+
+  .header__burger {
+    display: flex;
+  }
+
+  .header__cta {
+    display: none;
+  }
+
+  .services__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats-grid,
+  .values-grid,
+  .conversion-grid--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .conversion-grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  .faq__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .faq__head {
+    position: static;
+  }
+
+  .contact__inner {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .contact__info {
+    position: static;
+  }
+
+  .contact__info h2 {
+    max-width: 760px;
+  }
+
+  .cta__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.55fr);
+    gap: 48px;
+  }
+
+  .proposal-card {
+    min-height: 300px;
+    padding: 28px;
+    border-radius: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .cta__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .cta__visual {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .proposal-card {
+    width: min(100%, 520px);
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+
+  #cursor-ring,
+  #cursor-dot {
+    display: none;
+  }
+
+  .section-light,
+  .conversion--dark,
+  .process,
+  .contact,
+  .cta {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .header__inner {
+    min-height: 72px;
+  }
+
+  .hero__inner {
+    padding-top: 96px;
+    padding-bottom: 32px;
+  }
+
+  .hero__title {
+    font-size: clamp(3.6rem, 18vw, 8rem);
+  }
+
+  .section-head,
+  .cta__inner {
+    align-items: flex-start;
+  }
+
+  .section-head {
+    flex-direction: column;
+  }
+
+  .cta__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .cta h2 {
+    max-width: 680px;
+    font-size: clamp(3.1rem, 12vw, 5.8rem);
+    letter-spacing: -0.062em;
+  }
+
+  .cta__content p {
+    margin-top: 22px;
+  }
+
+  .cta__buttons {
+    margin-top: 30px;
+  }
+
+  .cta__visual {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .proposal-card {
+    width: 100%;
+  }
+
+  .hero__subtitle {
+    font-size: 24px;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+
+  .portfolio__grid,
+  .services__grid,
+  .stats-grid,
+  .values-grid,
+  .conversion-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-card__image,
+  .services__grid,
+  .stats-grid,
+  .values-grid,
+  .conversion-grid {
+    border-radius: 24px;
+  }
+
+  .portfolio-card {
+    padding: 12px;
+    border-radius: 24px;
+  }
+
+  .portfolio-card__image {
+    border-radius: 16px;
+  }
+
+  .portfolio-card__body {
+    gap: 0;
+    padding-top: 20px;
+  }
+
+  .portfolio-card__body a {
+    min-height: 58px;
+    margin-top: 22px;
+    border-radius: 14px;
+  }
+
+  .service-card {
+    min-height: 220px;
+  }
+
+  .conversion-card {
+    min-height: 230px;
+    padding: 26px;
+  }
+
+  .conversion-card h3 {
+    margin-top: 56px;
+  }
+
+  .process__heading {
+    margin-bottom: 64px;
+  }
+
+  .process__row {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 12px 20px;
+    padding: 28px 0;
+  }
+
+  .process__name {
+    min-width: 0;
+  }
+
+  .process__text {
+    grid-column: 2;
+    font-size: 15px;
+  }
+
+  .contact-form {
+    padding: 0;
+  }
+
+  .reviews .section-title {
+    margin-bottom: 40px;
+  }
+
+  .faq {
+    padding-top: 72px;
+  }
+
+  .faq-item {
+    padding: 24px 0;
+  }
+
+  .faq-item summary::after {
+    width: 36px;
+    height: 36px;
+  }
+
+  .reviews__empty {
+    min-height: 260px;
+    padding: 48px 20px;
+    border-radius: 22px;
+  }
+
+  .footer__inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-brand {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .header__logo {
+    font-size: 16px;
+  }
+
+  .hero__buttons,
+  .cta__buttons,
+  .chip-grid {
+    width: 100%;
+  }
+
+  .hero__buttons .btn,
+  .cta__buttons .btn,
+  .chip {
+    width: 100%;
+  }
+
+  .section-title,
+  .process__heading {
+    font-size: clamp(2.6rem, 14vw, 5rem);
+  }
+
+  .hero__title {
+    font-size: clamp(3.15rem, 17vw, 6.5rem);
+    letter-spacing: -0.065em;
+  }
+
+  .contact__info h2 {
+    font-size: clamp(3.4rem, 17vw, 5.6rem);
+  }
+
+  .cta h2 {
+    font-size: clamp(2.45rem, 11.5vw, 4.5rem);
+  }
+
+  .proposal-card {
+    min-height: 260px;
+    padding: 22px;
+    border-radius: 26px;
+  }
+
+  .proposal-card::before {
+    border-radius: 25px;
+  }
+
+  .proposal-card::after {
+    left: 22px;
+    right: 22px;
+    top: 76px;
+  }
+
+  .proposal-card__topline {
+    font-size: 11px;
+    gap: 12px;
+  }
+
+  .proposal-card__status {
+    padding: 9px 12px;
+  }
+
+  .proposal-card__body h3 {
+    font-size: clamp(2rem, 11vw, 2.65rem);
+  }
+}
+
+@media (hover: none) {
+  * {
+    cursor: auto;
+  }
+
+  #cursor-ring,
+  #cursor-dot {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .hero__typing {
+    width: auto !important;
+  }
+
+  .hero__typing span {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .hero__typing::after {
+    display: none !important;
+  }
+
+  .hero__aurora {
+    animation: none !important;
+  }
+
+  .hero__kicker-dot {
+    animation: none !important;
+  }
+
+  .hero__scroll-pip {
+    animation: none !important;
+  }
+
+  .hero__scroll {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+
+  .proposal-card {
+    animation: none !important;
+  }
+
+  .hero__sep {
+    width: min(400px, 50vw) !important;
+    transition: none !important;
+  }
+}
