@@ -1,6 +1,6 @@
 .process {
-  background: #000;
-  color: #fff;
+  background: var(--bg-dark);
+  color: var(--white);
   padding: 96px 0;
 }
 
@@ -10,7 +10,7 @@
   font-size: clamp(3rem, 9vw, 8rem);
   line-height: 0.92;
   letter-spacing: -0.04em;
-  color: #fff;
+  color: var(--white);
   margin-bottom: 80px;
 }
 
@@ -82,7 +82,7 @@
   font-size: clamp(1.5rem, 3.5vw, 2.8rem);
   line-height: 1;
   letter-spacing: -0.03em;
-  color: #fff;
+  color: var(--white);
 }
 
 .process__row:hover .process__name {

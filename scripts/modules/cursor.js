@@ -48,6 +48,16 @@ export function initCustomCursor() {
     mouseX = event.clientX;
     mouseY = event.clientY;
 
+    if (event.target instanceof Element) {
+      const faqItem = event.target.closest('.faq-item');
+
+      if (faqItem instanceof HTMLElement) {
+        const rect = faqItem.getBoundingClientRect();
+        faqItem.style.setProperty('--faq-hover-x', `${event.clientX - rect.left}px`);
+        faqItem.style.setProperty('--faq-hover-y', `${event.clientY - rect.top}px`);
+      }
+    }
+
     if (!hasPosition) {
       ringX = mouseX;
       ringY = mouseY;
@@ -64,6 +74,8 @@ export function initCustomCursor() {
   document.addEventListener('mouseleave', () => {
     ring.classList.add('is-hidden');
     dot.classList.add('is-hidden');
+    ring.classList.remove('is-hovering', 'is-faq-hovering');
+    dot.classList.remove('is-faq-hovering');
     stopRing();
   });
 
@@ -76,14 +88,32 @@ export function initCustomCursor() {
     if (document.hidden) stopRing();
   });
 
-  const interactiveSelectors = 'a, button, [role="button"], input, textarea, label, select';
+  const interactiveSelectors = 'a, button, [role="button"], input, textarea, label, select, .faq-item';
+  const faqSelector = '.faq-item';
 
   document.addEventListener('mouseover', (event) => {
-    if (event.target instanceof Element && event.target.closest(interactiveSelectors)) ring.classList.add('is-hovering');
+    if (!(event.target instanceof Element)) return;
+
+    if (event.target.closest(interactiveSelectors)) ring.classList.add('is-hovering');
+    if (event.target.closest(faqSelector)) {
+      ring.classList.add('is-faq-hovering');
+      dot.classList.add('is-faq-hovering');
+    }
   });
 
   document.addEventListener('mouseout', (event) => {
-    if (event.target instanceof Element && event.target.closest(interactiveSelectors)) ring.classList.remove('is-hovering');
+    if (!(event.target instanceof Element)) return;
+
+    const nextTarget = event.relatedTarget instanceof Element ? event.relatedTarget : null;
+    const hoveredInteractive = event.target.closest(interactiveSelectors);
+
+    if (hoveredInteractive && !nextTarget?.closest(interactiveSelectors)) ring.classList.remove('is-hovering');
+
+    const faqItem = event.target.closest(faqSelector);
+    if (faqItem && !nextTarget?.closest(faqSelector)) {
+      ring.classList.remove('is-faq-hovering');
+      dot.classList.remove('is-faq-hovering');
+    }
   });
 
 }

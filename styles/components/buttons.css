@@ -2,14 +2,23 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
   min-height: 48px;
   padding: 14px 28px;
-  border-radius: 999px;
+  border-radius: var(--radius-control);
   font-size: 15px;
   font-weight: 500;
-  line-height: 1;
-  white-space: nowrap;
-  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  line-height: 1.15;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    color var(--transition-fast);
 }
 
 .btn:hover {
@@ -20,42 +29,62 @@
   transform: translateY(0) scale(0.98);
 }
 
+.btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.86);
+  outline-offset: 4px;
+  box-shadow:
+    0 0 0 6px rgba(0, 0, 0, 0.24),
+    0 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
 .btn--light {
-  background: rgba(255, 255, 255, 0.95);
-  color: #000;
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 16px 44px rgba(255, 255, 255, 0.1);
 }
 
 .btn--light:hover {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 20px 56px rgba(255, 255, 255, 0.14);
 }
 
 .btn--dark {
-  background: #111;
-  color: #fff;
+  background: var(--electric);
+  color: var(--white);
+  box-shadow: var(--shadow-light);
 }
 
 .btn--dark:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--black);
+  box-shadow: var(--shadow-light-hover);
 }
 
 .btn--outline-light {
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff;
+  border: 1px solid var(--border-dark-strong);
+  color: var(--white);
 }
 
 .btn--outline-light:hover {
-  border-color: rgba(255, 255, 255, 0.55);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .btn--outline-dark {
-  border: 1px solid rgba(0, 0, 0, 0.18);
-  color: #111;
+  border: 1px solid var(--border-strong);
+  color: var(--electric);
 }
 
 .btn--outline-dark:hover {
-  border-color: rgba(0, 0, 0, 0.42);
+  border-color: rgba(0, 0, 0, 0.38);
   background: rgba(0, 0, 0, 0.04);
+}
+
+.btn--outline-dark:focus-visible,
+.btn--dark:focus-visible {
+  outline-color: var(--electric);
+  box-shadow:
+    0 0 0 6px rgba(255, 255, 255, 0.9),
+    0 0 0 8px rgba(16, 16, 16, 0.22);
 }
 
 .btn--full {

@@ -3,7 +3,7 @@
 /**
  * @typedef {{ title: string, description: string, url: string, image: string }} SiteMeta
  * @typedef {{ label: string, href: string }} NavigationItem
- * @typedef {{ title: string, type: string, description: string, url: string, image: string, alt: string, width: number, height: number, delay: number }} PortfolioItem
+ * @typedef {{ title: string, type: string, description: string, url: string, image: string, alt: string, width: number, height: number, delay: number, outcome?: string, role?: string, signal?: string, tags?: string[] }} PortfolioItem
  * @typedef {{ number: string, title: string, description: string, delay: number }} NumberedItem
  * @typedef {{ value: string, target: number, label: string, description: string, prefix?: string, suffix?: string }} StatItem
  * @typedef {{ title: string, description: string }} TextCard
@@ -19,7 +19,7 @@ export const siteContent = {
   telegramUrl: 'https://t.me/devbymax',
   meta: {
     title: 'devbymax',
-    description: 'Разработка сайтов для бизнеса: структура, дизайн, запуск и путь к заявке',
+    description: 'Премиальные сайты, портфолио и AI-связки для бизнеса: сильный оффер, дизайн, запуск и путь к заявке в Telegram',
     url: 'https://devbymax.ru/',
     image: 'https://s10.iimage.su/s/02/gFdnVqNxzHGkuabCQzsa4ssT5FPo9Nnj2OF4kJoGP.png',
   },
@@ -34,6 +34,10 @@ export const siteContent = {
       title: 'ЧистыйПёс',
       type: 'Сайт груминг-салона',
       description: 'Лендинг для записи на груминг: услуги, преимущества, визуальная подача и быстрый переход к заявке.',
+      outcome: 'Собран путь от услуги к записи без лишних шагов.',
+      role: 'Структура, визуал, адаптив, CTA',
+      signal: 'Запись через быстрый контакт',
+      tags: ['Локальный бизнес', 'Лендинг', 'Запись'],
       url: 'https://clean-dog.vercel.app/',
       image: 'img/portfolio-clean-dog.jpg',
       alt: 'Проект ЧистыйПёс',
@@ -45,6 +49,10 @@ export const siteContent = {
       title: 'Экспресс Оценка',
       type: 'Сервис оценки заявок',
       description: 'Сайт для презентации услуги: понятная структура, доверительный первый экран и быстрый контакт.',
+      outcome: 'Услуга объясняется с первого экрана и ведет к обращению.',
+      role: 'Оффер, дизайн, запуск',
+      signal: 'Доверие + контакт',
+      tags: ['Услуги', 'Доверие', 'Заявка'],
       url: 'https://ocenka-biznesa-spb.ru/',
       image: 'img/portfolio-express-ocenka.jpg',
       alt: 'Проект Экспресс Оценка',
@@ -56,6 +64,10 @@ export const siteContent = {
       title: 'Салон Фактура',
       type: 'Промо-сайт салона',
       description: 'Минималистичный сайт для локального бизнеса с акцентом на стиль, услуги и запись.',
+      outcome: 'Премиальная подача помогает быстро оценить стиль и записаться.',
+      role: 'Визуальная упаковка, UX, адаптив',
+      signal: 'Стиль + запись',
+      tags: ['Beauty', 'Промо', 'Мобильный UX'],
       url: 'https://factura-salon.vercel.app/#',
       image: 'img/portfolio-factura.jpg',
       alt: 'Проект Салон Фактура',
@@ -67,6 +79,10 @@ export const siteContent = {
       title: 'Колорист Кабаченко',
       type: 'Персональный сайт специалиста',
       description: 'Сайт-визитка для мастера с премиальной подачей, портфолио и удобной связью.',
+      outcome: 'Личный бренд подан через работы, специализацию и простой контакт.',
+      role: 'Портфолио, упаковка эксперта, CTA',
+      signal: 'Личный бренд',
+      tags: ['Эксперт', 'Портфолио', 'Запись'],
       url: 'https://v0-hair-salon-website-pearl-six.vercel.app/#',
       image: 'img/portfolio-kabachenko.jpg',
       alt: 'Проект Колорист Кабаченко',
@@ -103,6 +119,7 @@ export const siteContent = {
     { number: '03', title: 'Дизайн', description: 'Структура, прототип и интерфейс, который выглядит современно и помогает принять решение.', delay: 3 },
     { number: '04', title: 'Трафик', description: 'Подготовка сайта к рекламе и SEO: понятные блоки, быстрые контакты, базовая аналитика.', delay: 1 },
     { number: '05', title: 'Под ключ', description: 'Сайт, форма заявки, Telegram-связка, запуск, проверка адаптива и поддержка после публикации.', delay: 2 },
+    { number: '06', title: 'Заявки', description: 'Формы, заявки, таблицы, уведомления и сценарии, которые помогают бизнесу быстрее обрабатывать клиентов.', delay: 3 },
   ],
   deliverables: [
     {

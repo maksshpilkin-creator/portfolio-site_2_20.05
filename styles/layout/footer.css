@@ -1,7 +1,7 @@
 .footer {
-  background: #000;
+  background: var(--bg-dark);
   color: rgba(255, 255, 255, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-dark);
   padding: 28px 0;
 }
 
@@ -14,7 +14,7 @@
 }
 
 .footer__logo {
-  color: #fff;
+  color: var(--white);
   font-family: var(--font-heading);
   font-weight: 800;
   letter-spacing: -0.03em;

@@ -1,8 +1,8 @@
 .contact {
-  background: #000;
-  color: #fff;
+  background: var(--bg-dark);
+  color: var(--white);
   padding: 96px 0 112px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-dark);
 }
 
 .contact__inner {
@@ -30,7 +30,7 @@
 
 .contact__info p {
   max-width: 470px;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--muted-inverse-soft);
   font-size: 16px;
   line-height: 1.65;
   margin-bottom: 32px;
@@ -45,7 +45,7 @@
 .contact__info li {
   position: relative;
   padding-left: 18px;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--muted-inverse);
   font-size: 15px;
 }
 
@@ -57,12 +57,24 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .contact-form {
-  padding: 8px;
   min-width: 0;
+  padding: 28px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-card);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+    var(--surface-dark);
+  box-shadow: var(--shadow-dark);
+}
+
+.contact-form:hover,
+.contact-form:focus-within {
+  border-color: var(--border-dark-strong);
+  box-shadow: var(--shadow-dark-hover);
 }
 
 .form-group {
@@ -73,7 +85,7 @@
 .contact-form label span {
   display: block;
   margin-bottom: 12px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--muted-inverse-soft);
   font-size: 13px;
   font-weight: 500;
 }
@@ -85,20 +97,34 @@
 }
 
 .chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
   min-height: 44px;
   padding: 12px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 999px;
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-control);
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  line-height: 1.2;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .chip:hover,
 .chip.is-active {
-  border-color: #fff;
-  background: #fff;
-  color: #000;
+  border-color: var(--white);
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 10px 28px rgba(255, 255, 255, 0.1);
 }
 
 .chip:active {
@@ -106,7 +132,8 @@
 }
 
 .chip:focus-visible {
-  outline-color: #fff;
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
 }
 
 .form-grid {
@@ -118,14 +145,16 @@
 
 .contact-form input,
 .contact-form textarea {
+  width: 100%;
   min-height: 56px;
   padding: 16px 18px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 18px;
+  border: 1px solid var(--border-dark);
+  border-radius: calc(var(--radius-card-sm) - 2px);
   background: rgba(255, 255, 255, 0.05);
-  color: #fff;
+  color: var(--white);
+  outline: none;
   resize: vertical;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
 .contact-form textarea {
@@ -136,6 +165,13 @@
 .contact-form textarea:focus {
   border-color: rgba(255, 255, 255, 0.42);
   background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.045);
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible {
+  border-color: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.075);
 }
 
 .form-message {
@@ -143,9 +179,20 @@
   margin-bottom: 24px;
 }
 
+.contact-form .btn--dark {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 16px 44px rgba(255, 255, 255, 0.1);
+}
+
+.contact-form .btn--dark:hover {
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 20px 56px rgba(255, 255, 255, 0.14);
+}
+
 .contact-form__note {
   margin-top: 14px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.42);
   font-size: 13px;
   line-height: 1.5;
   text-align: center;

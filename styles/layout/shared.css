@@ -7,7 +7,8 @@
 }
 
 .section-light {
-  background: var(--slate-bg);
+  position: relative;
+  background: var(--bg-light);
   padding: 96px 0;
 }
 
@@ -19,7 +20,7 @@
   overflow: hidden;
   line-height: 0;
   pointer-events: none;
-  color: #0A0A0A;
+  color: var(--bg-dark);
 }
 
 .section-divider svg {
@@ -54,14 +55,43 @@
   color: var(--muted);
   font-size: 16px;
   line-height: 1.65;
+  text-wrap: pretty;
 }
 
 .section-kicker {
   display: block;
   margin-bottom: 16px;
-  color: rgba(0, 0, 0, 0.45);
+  color: rgba(16, 16, 16, 0.48);
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+:where(.portfolio-card, .conversion-card, .service-card, .stat-card, .value-card, .faq-item, .process__row, .reviews__empty, .contact-form, .proposal-card) {
+  transition:
+    transform var(--transition-smooth),
+    border-color var(--transition-smooth),
+    background-color var(--transition-smooth),
+    box-shadow var(--transition-smooth),
+    color var(--transition-smooth);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :where(.portfolio-card, .conversion-card, .service-card, .stat-card, .value-card, .faq-item, .reviews__empty):hover {
+    transform: translateY(-4px);
+  }
+
+  :where(.services__grid, #audience .conversion-grid, #result .conversion-grid) :where(.service-card, .conversion-card):hover {
+    transform: translateY(-2px);
+  }
+}
+
+:where(.portfolio-card, .conversion-card, .service-card, .stat-card, .value-card, .faq-item, .process__row):focus-within {
+  border-color: var(--border-strong);
+}
+
+:where(.portfolio-card, .conversion-card, .service-card, .stat-card, .value-card, .faq-item, .process__row):focus-visible {
+  outline: 2px solid var(--electric);
+  outline-offset: 4px;
 }
