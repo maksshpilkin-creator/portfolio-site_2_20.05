@@ -5,7 +5,7 @@
  * @typedef {{ label: string, href: string }} NavigationItem
  * @typedef {{ title: string, type: string, description: string, url: string, image: string, alt: string, width: number, height: number, delay: number, outcome?: string, role?: string, signal?: string, tags?: string[] }} PortfolioItem
  * @typedef {{ number: string, title: string, description: string, delay: number }} NumberedItem
- * @typedef {{ value: string, target: number, label: string, description: string, prefix?: string, suffix?: string }} StatItem
+ * @typedef {{ value: string, label: string, description: string, target?: number, prefix?: string, suffix?: string }} StatItem
  * @typedef {{ title: string, description: string }} TextCard
  * @typedef {{ title: string, description: string, marker?: string }} ConversionCard
  * @typedef {{ question: string, answer: string }} FaqItem
@@ -27,7 +27,7 @@ export const siteContent = {
     { label: 'Портфолио', href: '#portfolio' },
     { label: 'Услуги', href: '#services' },
     { label: 'О студии', href: '#about' },
-    { label: 'Как мы работаем', href: '#process' },
+    { label: 'Как я веду проект', href: '#process' },
   ],
   portfolio: [
     {
@@ -139,10 +139,10 @@ export const siteContent = {
     },
   ],
   stats: [
-    { value: '7+', target: 7, suffix: '+', label: 'проектов и демо', description: 'Есть работы, по которым можно оценить визуал, структуру и подход к задачам.' },
+    { value: '7+', target: 7, suffix: '+', label: 'собранных проектов', description: 'Есть работы, по которым можно оценить визуал, структуру и подход к задачам.' },
     { value: '1–3', target: 3, prefix: '1–', label: 'дня до первого макета', description: 'Быстро показываю направление, чтобы вы видели проект уже на раннем этапе.' },
     { value: '5+', target: 5, suffix: '+', label: 'сценариев заявки', description: 'Формы, Telegram, кнопки, квизы, бот или простой путь к звонку.' },
-    { value: '24/7', target: 24, suffix: '/7', label: 'связь по проекту', description: 'На связи в процессе работы и после запуска, без пропаданий и непонятных пауз.' },
+    { value: 'Связь', label: 'по проекту', description: 'Отвечаю в рабочем темпе и заранее предупреждаю, когда нужен ваш фидбек.' },
   ],
   values: [
     { title: 'Разбираю задачу до дизайна', description: 'Сначала выясняю нишу, аудиторию, услугу, конкурентов и главную цель сайта.' },
@@ -175,7 +175,7 @@ export const siteContent = {
   process: [
     { number: '01', title: 'Заявка', description: 'Вы коротко рассказываете о бизнесе, задаче, сроках и желаемом результате.', delay: 1 },
     { number: '02', title: 'Анализ', description: 'Я изучаю нишу, конкурентов, текущие материалы и предлагаю оптимальный формат решения.', delay: 2 },
-    { number: '03', title: 'Структура', description: 'Собираем блоки, смыслы, сценарий заявки и ответы на главные вопросы клиента.', delay: 3 },
+    { number: '03', title: 'Структура', description: 'Собираю блоки, смыслы, сценарий заявки и ответы на главные вопросы клиента.', delay: 3 },
     { number: '04', title: 'Дизайн', description: 'Создаю современный интерфейс под вашу аудиторию, услугу и уровень доверия, который нужно вызвать.', delay: 4 },
     { number: '05', title: 'Разработка', description: 'Собираю адаптивный сайт, подключаю формы, Telegram-ссылки и нужные интерактивные элементы.', delay: 5 },
     { number: '06', title: 'Запуск', description: 'Проверяю мобильную версию, кнопки, формы, базовую аналитику и публикую проект.', delay: 5 },
@@ -204,7 +204,7 @@ export const siteContent = {
   ],
   contact: {
     benefits: ['Бесплатная консультация', 'Оценка за несколько часов', 'Понятный план запуска', 'Без скрытых платежей'],
-    projectTypes: ['Сайт', 'Telegram Mini App', 'Telegram-бот', 'Дизайн', 'Автоматизация', 'Другое'],
+    projectTypes: ['Сайт', 'Telegram-бот', 'Дизайн', 'Автоматизация', 'Другое'],
     budgets: ['До 10 000 ₽', '10 000 – 30 000 ₽', '30 000 – 70 000 ₽', 'Свыше 70 000 ₽', 'Обсудим'],
   },
 };

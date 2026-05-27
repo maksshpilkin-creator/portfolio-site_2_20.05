@@ -6,9 +6,11 @@ export function renderStats(container, items) {
     card.className = 'stat-card';
 
     const value = appendText(card, 'strong', item.value);
-    value.dataset.countTarget = String(item.target);
-    if (item.prefix) value.dataset.countPrefix = item.prefix;
-    if (item.suffix) value.dataset.countSuffix = item.suffix;
+    if (Number.isFinite(item.target)) {
+      value.dataset.countTarget = String(item.target);
+      if (item.prefix) value.dataset.countPrefix = item.prefix;
+      if (item.suffix) value.dataset.countSuffix = item.suffix;
+    }
 
     appendText(card, 'span', item.label);
     appendText(card, 'p', item.description);
