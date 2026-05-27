@@ -19,7 +19,7 @@ function initActiveNav() {
     .filter(Boolean);
 
   function setActive(id) {
-    links.forEach((link) => {
+    document.querySelectorAll('.header__link[href^="#"]').forEach((link) => {
       const isActive = link.getAttribute('href') === `#${id}`;
       link.classList.toggle('is-active', isActive);
       if (isActive) {
@@ -64,7 +64,9 @@ function initMobileNav() {
 
     burger.classList.toggle('active', isOpen);
     burger.setAttribute('aria-expanded', String(isOpen));
-    burger.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+    const openLabel = document.documentElement.dataset.menuOpenLabel || 'Открыть меню';
+    const closeLabel = document.documentElement.dataset.menuCloseLabel || 'Закрыть меню';
+    burger.setAttribute('aria-label', isOpen ? closeLabel : openLabel);
     mobileNav.classList.toggle('open', isOpen);
     mobileNav.setAttribute('aria-hidden', String(!isOpen));
     document.body.classList.toggle('nav-open', isOpen);
@@ -84,8 +86,9 @@ function initMobileNav() {
     setOpen(!mobileNav.classList.contains('open'));
   });
 
-  mobileNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => setOpen(false));
+  mobileNav.addEventListener('click', (event) => {
+    const target = event.target instanceof Element ? event.target.closest('a') : null;
+    if (target) setOpen(false);
   });
 
   document.addEventListener('keydown', (event) => {

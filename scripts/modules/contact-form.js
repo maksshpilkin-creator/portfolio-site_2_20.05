@@ -3,15 +3,15 @@ function getFormValue(formData, name) {
   return typeof value === 'string' ? value.trim() : '';
 }
 
-function buildTelegramMessage(form) {
+function buildTelegramMessage(form, labels) {
   const formData = new FormData(form);
   const lines = [
-    'Новая заявка с сайта devbymax',
-    `Что нужно: ${getFormValue(formData, 'projectType')}`,
-    `Бюджет: ${getFormValue(formData, 'budget')}`,
-    `Имя: ${getFormValue(formData, 'name')}`,
-    `Контакт: ${getFormValue(formData, 'contact')}`,
-    `О проекте: ${getFormValue(formData, 'message')}`,
+    labels.title,
+    `${labels.projectType}: ${getFormValue(formData, 'projectType')}`,
+    `${labels.budget}: ${getFormValue(formData, 'budget')}`,
+    `${labels.name}: ${getFormValue(formData, 'name')}`,
+    `${labels.contact}: ${getFormValue(formData, 'contact')}`,
+    `${labels.message}: ${getFormValue(formData, 'message')}`,
   ];
 
   return lines.filter((line) => !line.endsWith(': ')).join('\n');
@@ -28,7 +28,7 @@ async function copyMessage(message) {
   }
 }
 
-export function initContactForm({ telegramUrl }) {
+export function initContactForm(getContent) {
   const form = document.querySelector('[data-contact-form]');
   if (!(form instanceof HTMLFormElement)) return;
 
@@ -39,17 +39,18 @@ export function initContactForm({ telegramUrl }) {
 
     if (!form.reportValidity()) return;
 
-    const message = buildTelegramMessage(form);
-    const telegramWindow = window.open(telegramUrl, '_blank');
+    const content = getContent();
+    const message = buildTelegramMessage(form, content.telegramMessage);
+    const telegramWindow = window.open(content.telegramUrl, '_blank');
     if (telegramWindow) telegramWindow.opener = null;
     const copied = await copyMessage(message);
 
     if (status) {
       status.textContent = copied
-        ? 'Заявка скопирована. Открываю Telegram - вставьте сообщение в чат.'
-        : 'Открываю Telegram. Скопируйте описание проекта из формы и отправьте в чат.';
+        ? content.ui.copied
+        : content.ui.fallback;
     }
 
-    if (!telegramWindow) window.location.href = telegramUrl;
+    if (!telegramWindow) window.location.href = content.telegramUrl;
   });
 }

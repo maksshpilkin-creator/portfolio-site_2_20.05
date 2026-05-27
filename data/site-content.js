@@ -1,6 +1,7 @@
 // @ts-check
 
 /**
+ * @typedef {'ru' | 'en'} Locale
  * @typedef {{ title: string, description: string, url: string, image: string }} SiteMeta
  * @typedef {{ label: string, href: string }} NavigationItem
  * @typedef {{ title: string, type: string, description: string, url: string, image: string, alt: string, width: number, height: number, delay: number, outcome?: string, role?: string, signal?: string, tags?: string[] }} PortfolioItem
@@ -10,13 +11,20 @@
  * @typedef {{ title: string, description: string, marker?: string }} ConversionCard
  * @typedef {{ question: string, answer: string }} FaqItem
  * @typedef {{ benefits: string[], projectTypes: string[], budgets: string[] }} ContactContent
- * @typedef {{ siteUrl: string, telegramUrl: string, meta: SiteMeta, navigation: NavigationItem[], portfolio: PortfolioItem[], audiences: ConversionCard[], services: NumberedItem[], deliverables: ConversionCard[], stats: StatItem[], values: TextCard[], trust: ConversionCard[], process: NumberedItem[], faq: FaqItem[], contact: ContactContent }} SiteContent
+ * @typedef {{ [key: string]: string }} StaticCopy
+ * @typedef {{ result: string, role: string, viewProject: string, viewProjectAria: string, menuOpen: string, menuClose: string, copied: string, fallback: string }} UiLabels
+ * @typedef {{ title: string, projectType: string, budget: string, name: string, contact: string, message: string }} TelegramLabels
+ * @typedef {{ siteUrl: string, telegramUrl: string, meta: SiteMeta, navigation: NavigationItem[], portfolio: PortfolioItem[], audiences: ConversionCard[], services: NumberedItem[], deliverables: ConversionCard[], stats: StatItem[], values: TextCard[], trust: ConversionCard[], process: NumberedItem[], faq: FaqItem[], contact: ContactContent, static: StaticCopy, ui: UiLabels, telegramMessage: TelegramLabels }} SiteContent
  */
 
-/** @satisfies {SiteContent} */
-export const siteContent = {
+const shared = {
   siteUrl: 'https://devbymax.ru/',
   telegramUrl: 'https://t.me/devbymax',
+};
+
+/** @satisfies {SiteContent} */
+const ru = {
+  ...shared,
   meta: {
     title: 'devbymax',
     description: 'Премиальные сайты, портфолио и AI-связки для бизнеса: сильный оффер, дизайн, запуск и путь к заявке в Telegram',
@@ -92,26 +100,10 @@ export const siteContent = {
     },
   ],
   audiences: [
-    {
-      marker: '01',
-      title: 'Локальный бизнес',
-      description: 'Салоны, студии, мастера, клиники и сервисы, которым нужен понятный сайт для записи, звонков и заявок.',
-    },
-    {
-      marker: '02',
-      title: 'Услуги и эксперты',
-      description: 'Упакую оффер, покажу кейсы, объясню преимущества и помогу клиенту быстрее понять, почему стоит обратиться именно к вам.',
-    },
-    {
-      marker: '03',
-      title: 'Запуск нового проекта',
-      description: 'Быстро соберу первую версию сайта, чтобы проверить спрос, запустить рекламу или показать продукт партнёрам.',
-    },
-    {
-      marker: '04',
-      title: 'Бизнес в Telegram',
-      description: 'Свяжу сайт с Telegram, ботом или Mini App, если заявки, каталог, квиз или запись удобнее вести внутри мессенджера.',
-    },
+    { marker: '01', title: 'Локальный бизнес', description: 'Салоны, студии, мастера, клиники и сервисы, которым нужен понятный сайт для записи, звонков и заявок.' },
+    { marker: '02', title: 'Услуги и эксперты', description: 'Упакую оффер, покажу кейсы, объясню преимущества и помогу клиенту быстрее понять, почему стоит обратиться именно к вам.' },
+    { marker: '03', title: 'Запуск нового проекта', description: 'Быстро соберу первую версию сайта, чтобы проверить спрос, запустить рекламу или показать продукт партнёрам.' },
+    { marker: '04', title: 'Бизнес в Telegram', description: 'Свяжу сайт с Telegram, ботом или Mini App, если заявки, каталог, квиз или запись удобнее вести внутри мессенджера.' },
   ],
   services: [
     { number: '01', title: 'Сайт', description: 'Лендинг, сайт услуг, промо-страница или небольшой корпоративный сайт под заявки.', delay: 1 },
@@ -122,21 +114,9 @@ export const siteContent = {
     { number: '06', title: 'Заявки', description: 'Формы, заявки, таблицы, уведомления и сценарии, которые помогают бизнесу быстрее обрабатывать клиентов.', delay: 3 },
   ],
   deliverables: [
-    {
-      marker: 'СТРУКТУРА',
-      title: 'Сайт не просто красивый, а продающий',
-      description: 'Сначала собираю путь клиента: что он должен понять, чему поверить и какое действие сделать после просмотра страницы.',
-    },
-    {
-      marker: 'ТЕКСТЫ',
-      title: 'Помогаю сформулировать оффер',
-      description: 'Не оставляю вас один на один с пустыми блоками: подскажу заголовки, смыслы, преимущества и вопросы, которые стоит закрыть.',
-    },
-    {
-      marker: 'ЗАПУСК',
-      title: 'Готовлю к реальным заявкам',
-      description: 'Проверяю мобильную версию, кнопки, формы, скорость восприятия, Telegram-ссылки и базовые сценарии перед публикацией.',
-    },
+    { marker: 'СТРУКТУРА', title: 'Сайт не просто красивый, а продающий', description: 'Сначала собираю путь клиента: что он должен понять, чему поверить и какое действие сделать после просмотра страницы.' },
+    { marker: 'ТЕКСТЫ', title: 'Помогаю сформулировать оффер', description: 'Не оставляю вас один на один с пустыми блоками: подскажу заголовки, смыслы, преимущества и вопросы, которые стоит закрыть.' },
+    { marker: 'ЗАПУСК', title: 'Готовлю к реальным заявкам', description: 'Проверяю мобильную версию, кнопки, формы, скорость восприятия, Telegram-ссылки и базовые сценарии перед публикацией.' },
   ],
   stats: [
     { value: '7+', target: 7, suffix: '+', label: 'собранных проектов', description: 'Есть работы, по которым можно оценить визуал, структуру и подход к задачам.' },
@@ -151,26 +131,10 @@ export const siteContent = {
     { title: 'Поддерживаю после запуска', description: 'Помогаю с правками, техническими вопросами и развитием проекта после публикации.' },
   ],
   trust: [
-    {
-      marker: 'ПОНЯТНО',
-      title: 'Без технического тумана',
-      description: 'Объясняю решения человеческим языком: что делаем, зачем это нужно и как это повлияет на заявки.',
-    },
-    {
-      marker: 'ЧЕСТНО',
-      title: 'Оценка до старта',
-      description: 'После короткого обсуждения называю формат, примерный бюджет и сроки. Если задачу можно решить проще, скажу об этом.',
-    },
-    {
-      marker: 'БЫСТРО',
-      title: 'Первые результаты сразу',
-      description: 'Не затягиваю проект: быстро собираю структуру и первый визуальный вариант, чтобы вы могли дать обратную связь.',
-    },
-    {
-      marker: 'СПОКОЙНО',
-      title: 'Запуск без брошенного сайта',
-      description: 'После публикации проверяю основные сценарии и остаюсь на связи, если нужно поправить текст, блок или ссылку.',
-    },
+    { marker: 'ПОНЯТНО', title: 'Без технического тумана', description: 'Объясняю решения человеческим языком: что делаем, зачем это нужно и как это повлияет на заявки.' },
+    { marker: 'ЧЕСТНО', title: 'Оценка до старта', description: 'После короткого обсуждения называю формат, примерный бюджет и сроки. Если задачу можно решить проще, скажу об этом.' },
+    { marker: 'БЫСТРО', title: 'Первые результаты сразу', description: 'Не затягиваю проект: быстро собираю структуру и первый визуальный вариант, чтобы вы могли дать обратную связь.' },
+    { marker: 'СПОКОЙНО', title: 'Запуск без брошенного сайта', description: 'После публикации проверяю основные сценарии и остаюсь на связи, если нужно поправить текст, блок или ссылку.' },
   ],
   process: [
     { number: '01', title: 'Заявка', description: 'Вы коротко рассказываете о бизнесе, задаче, сроках и желаемом результате.', delay: 1 },
@@ -181,30 +145,294 @@ export const siteContent = {
     { number: '06', title: 'Запуск', description: 'Проверяю мобильную версию, кнопки, формы, базовую аналитику и публикую проект.', delay: 5 },
   ],
   faq: [
-    {
-      question: 'Сколько стоит сайт?',
-      answer: 'Зависит от задачи. Небольшой лендинг обычно начинается от 10 000 ₽, более сложные сайты, Telegram-связки и проекты под ключ оцениваются после короткого обсуждения.',
-    },
-    {
-      question: 'За сколько можно запустить проект?',
-      answer: 'Первый вариант структуры или макета часто можно показать за 1–3 дня. Срок полного запуска зависит от объёма: количества блоков, текстов, интеграций и правок.',
-    },
-    {
-      question: 'Что нужно от меня для старта?',
-      answer: 'Достаточно рассказать, чем вы занимаетесь, кому продаёте, какие услуги важнее продвигать и куда должны приходить заявки. Если текстов нет, помогу собрать структуру и смыслы.',
-    },
-    {
-      question: 'Можно ли сделать сайт без готового дизайна?',
-      answer: 'Да. Я могу сам собрать визуальное направление, прототип и готовый интерфейс. От вас нужны вводные по бизнесу, примеры, которые нравятся, и обратная связь по этапам.',
-    },
-    {
-      question: 'Вы помогаете после запуска?',
-      answer: 'Да. После публикации остаюсь на связи: помогаю с небольшими правками, проверкой ссылок, форм, Telegram-переходов и дальнейшим развитием страницы.',
-    },
+    { question: 'Сколько стоит сайт?', answer: 'Зависит от задачи. Небольшой лендинг обычно начинается от 10 000 ₽, более сложные сайты, Telegram-связки и проекты под ключ оцениваются после короткого обсуждения.' },
+    { question: 'За сколько можно запустить проект?', answer: 'Первый вариант структуры или макета часто можно показать за 1–3 дня. Срок полного запуска зависит от объёма: количества блоков, текстов, интеграций и правок.' },
+    { question: 'Что нужно от меня для старта?', answer: 'Достаточно рассказать, чем вы занимаетесь, кому продаёте, какие услуги важнее продвигать и куда должны приходить заявки. Если текстов нет, помогу собрать структуру и смыслы.' },
+    { question: 'Можно ли сделать сайт без готового дизайна?', answer: 'Да. Я могу сам собрать визуальное направление, прототип и готовый интерфейс. От вас нужны вводные по бизнесу, примеры, которые нравятся, и обратная связь по этапам.' },
+    { question: 'Вы помогаете после запуска?', answer: 'Да. После публикации остаюсь на связи: помогаю с небольшими правками, проверкой ссылок, форм, Telegram-переходов и дальнейшим развитием страницы.' },
   ],
   contact: {
     benefits: ['Бесплатная консультация', 'Оценка за несколько часов', 'Понятный план запуска', 'Без скрытых платежей'],
     projectTypes: ['Сайт', 'Telegram-бот', 'Дизайн', 'Автоматизация', 'Другое'],
     budgets: ['До 10 000 ₽', '10 000 – 30 000 ₽', '30 000 – 70 000 ₽', 'Свыше 70 000 ₽', 'Обсудим'],
   },
+  static: {
+    navAria: 'Основная навигация',
+    mobileNavAria: 'Мобильная навигация',
+    headerCta: 'Оценить проект',
+    heroSubtitle: 'Сайты и Telegram-связки для услуг,<br>которые быстрее доводят клиента до заявки',
+    heroDescription: 'Упаковываю оффер, проектирую структуру, собираю визуал и подключаю Telegram-сценарии: от первого экрана до понятного действия клиента.',
+    heroPrimary: 'Оценить проект в Telegram',
+    heroSecondary: 'Портфолио',
+    heroScroll: 'листайте',
+    portfolioTitle: 'Портфолио',
+    audienceTitle: 'Кому подойдёт',
+    audienceText: 'Если сайт должен не просто существовать, а объяснять ценность, вызывать доверие и приводить человека к контакту.',
+    servicesTitle: 'Услуги',
+    servicesText: 'Всё, что нужно для присутствия в интернете: упаковка предложения, дизайн, разработка, запуск и связка с Telegram.',
+    resultTitle: 'Что вы получите',
+    resultText: 'Результат, который можно показать клиентам, запустить в рекламу и развивать дальше без переделки с нуля.',
+    aboutTitle: 'О студии',
+    trustTitle: 'Почему со мной удобно',
+    trustText: 'Сайт для бизнеса — это не только дизайн. Важно быстро понять задачу, не потерять смысл и спокойно довести проект до запуска.',
+    processAria: 'Процесс работы',
+    processTitle: 'Как я веду проект',
+    faqTitle: 'Вопросы перед стартом',
+    faqText: 'Ответы на то, что обычно важно понять до первой заявки: бюджет, сроки, материалы и поддержка после запуска.',
+    contactTitle: 'Расскажите о проекте',
+    contactText: 'Опишите задачу — я предложу подходящий формат сайта, примерный бюджет, структуру и понятный план запуска.',
+    projectTypeLabel: 'Что нужно?',
+    budgetLabel: 'Бюджет',
+    nameLabel: 'Имя',
+    contactLabel: 'Telegram / телефон',
+    messageLabel: 'О проекте',
+    messagePlaceholder: 'Расскажите, какой сайт или автоматизация вам нужна…',
+    formSubmit: 'Получить оценку проекта',
+    formNote: 'Отвечу в Telegram и подскажу, с чего лучше начать.',
+    reviewsTitle: 'Как проверяю качество без громких обещаний',
+    reviewsBadge: 'Проверяемые признаки работы',
+    reviewsSubtitle: 'Показываю работу через процесс, портфолио и готовность к запуску',
+    reviewsText: 'Показываю реальные проекты, живые ссылки, структуру, адаптив и путь заявки — то, что можно проверить до старта.',
+    reviewsProofAria: 'Проверяемые признаки работы',
+    proofOne: 'Портфолио с живыми ссылками',
+    proofTwo: 'Проверка мобильной версии и CTA',
+    proofThree: 'Telegram как быстрый канал заявки',
+    ctaTitle: 'Запустим сайт, который помогает клиенту выбрать вас',
+    ctaText: 'Продуманная структура, сильный визуал, быстрый контакт и понятный сценарий от первого экрана до заявки.',
+    ctaPrimary: 'Оценить проект',
+    ctaSecondary: 'Написать в Telegram',
+    ctaNote: 'Отвечу в течение дня &middot; Подскажу лучший формат',
+    proposalLabel: 'НОВЫЙ ПРОЕКТ',
+    proposalStatus: 'ПОД КЛЮЧ',
+    proposalTitle: 'Напишите в Telegram — оценю задачу и предложу план',
+    proposalButton: 'Написать в Telegram',
+  },
+  ui: {
+    result: 'Результат',
+    role: 'Роль',
+    viewProject: 'Смотреть проект',
+    viewProjectAria: 'Смотреть проект',
+    menuOpen: 'Открыть меню',
+    menuClose: 'Закрыть меню',
+    copied: 'Заявка скопирована. Открываю Telegram - вставьте сообщение в чат.',
+    fallback: 'Открываю Telegram. Скопируйте описание проекта из формы и отправьте в чат.',
+  },
+  telegramMessage: {
+    title: 'Новая заявка с сайта devbymax',
+    projectType: 'Что нужно',
+    budget: 'Бюджет',
+    name: 'Имя',
+    contact: 'Контакт',
+    message: 'О проекте',
+  },
 };
+
+/** @satisfies {SiteContent} */
+const en = {
+  ...shared,
+  meta: {
+    title: 'devbymax',
+    description: 'Premium websites, portfolios, and AI workflows for service businesses: clear offer, design, launch, and a direct path to Telegram inquiries',
+    url: 'https://devbymax.ru/',
+    image: 'https://s10.iimage.su/s/02/gFdnVqNxzHGkuabCQzsa4ssT5FPo9Nnj2OF4kJoGP.png',
+  },
+  navigation: [
+    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Services', href: '#services' },
+    { label: 'Studio', href: '#about' },
+    { label: 'Process', href: '#process' },
+  ],
+  portfolio: [
+    {
+      title: 'CleanDog',
+      type: 'Grooming salon website',
+      description: 'A booking-focused landing page for grooming services: services, benefits, visual presentation, and a fast path to an inquiry.',
+      outcome: 'Built a direct path from service interest to booking without extra steps.',
+      role: 'Structure, visuals, responsive UI, CTA',
+      signal: 'Booking via fast contact',
+      tags: ['Local business', 'Landing page', 'Booking'],
+      url: 'https://clean-dog.vercel.app/',
+      image: 'img/portfolio-clean-dog.jpg',
+      alt: 'CleanDog project',
+      width: 1200,
+      height: 675,
+      delay: 1,
+    },
+    {
+      title: 'Express Valuation',
+      type: 'Lead assessment service',
+      description: 'A service presentation website with a clear structure, trust-building first screen, and fast contact route.',
+      outcome: 'The service is clear from the first screen and leads users toward contact.',
+      role: 'Offer, design, launch',
+      signal: 'Trust + contact',
+      tags: ['Services', 'Trust', 'Inquiry'],
+      url: 'https://ocenka-biznesa-spb.ru/',
+      image: 'img/portfolio-express-ocenka.jpg',
+      alt: 'Express Valuation project',
+      width: 1200,
+      height: 675,
+      delay: 2,
+    },
+    {
+      title: 'Factura Salon',
+      type: 'Salon promo website',
+      description: 'A minimal website for a local business with focus on style, services, and appointment booking.',
+      outcome: 'A premium presentation helps visitors quickly understand the style and book.',
+      role: 'Visual packaging, UX, responsive UI',
+      signal: 'Style + booking',
+      tags: ['Beauty', 'Promo', 'Mobile UX'],
+      url: 'https://factura-salon.vercel.app/#',
+      image: 'img/portfolio-factura.jpg',
+      alt: 'Factura Salon project',
+      width: 1200,
+      height: 675,
+      delay: 1,
+    },
+    {
+      title: 'Colorist Kabachenko',
+      type: 'Personal expert website',
+      description: 'A personal website for a specialist with premium presentation, portfolio, and simple contact flow.',
+      outcome: 'The personal brand is presented through work samples, specialization, and direct contact.',
+      role: 'Portfolio, expert positioning, CTA',
+      signal: 'Personal brand',
+      tags: ['Expert', 'Portfolio', 'Booking'],
+      url: 'https://v0-hair-salon-website-pearl-six.vercel.app/#',
+      image: 'img/portfolio-kabachenko.jpg',
+      alt: 'Colorist Kabachenko project',
+      width: 1200,
+      height: 675,
+      delay: 2,
+    },
+  ],
+  audiences: [
+    { marker: '01', title: 'Local businesses', description: 'Salons, studios, solo specialists, clinics, and services that need a clear website for bookings, calls, and inquiries.' },
+    { marker: '02', title: 'Services and experts', description: 'I package the offer, show cases, explain advantages, and help clients understand why they should contact you.' },
+    { marker: '03', title: 'New launches', description: 'I quickly assemble a first version of the site to test demand, launch ads, or present the product to partners.' },
+    { marker: '04', title: 'Telegram-first business', description: 'I connect the site with Telegram, a bot, or a Mini App when inquiries, catalogs, quizzes, or booking work better inside the messenger.' },
+  ],
+  services: [
+    { number: '01', title: 'Website', description: 'Landing pages, service websites, promo pages, or compact corporate sites built for inquiries.', delay: 1 },
+    { number: '02', title: 'Telegram bot', description: 'Automation for inquiries, orders, notifications, and simple customer communication flows.', delay: 2 },
+    { number: '03', title: 'Design', description: 'Structure, prototype, and interface that looks modern and helps visitors make a decision.', delay: 3 },
+    { number: '04', title: 'Traffic prep', description: 'Preparing the site for ads and SEO: clear blocks, fast contacts, and basic analytics.', delay: 1 },
+    { number: '05', title: 'Turnkey launch', description: 'Website, inquiry form, Telegram flow, launch, responsive checks, and support after publishing.', delay: 2 },
+    { number: '06', title: 'Lead flow', description: 'Forms, inquiries, spreadsheets, notifications, and scenarios that help businesses process clients faster.', delay: 3 },
+  ],
+  deliverables: [
+    { marker: 'STRUCTURE', title: 'A site that sells, not just looks good', description: 'First I build the customer path: what they should understand, believe, and do after viewing the page.' },
+    { marker: 'COPY', title: 'Help shaping the offer', description: 'You are not left with empty sections: I suggest headlines, meanings, benefits, and questions worth answering.' },
+    { marker: 'LAUNCH', title: 'Ready for real inquiries', description: 'I check mobile layout, buttons, forms, reading speed, Telegram links, and basic scenarios before publishing.' },
+  ],
+  stats: [
+    { value: '7+', target: 7, suffix: '+', label: 'completed projects', description: 'Work samples are available to judge visuals, structure, and approach.' },
+    { value: '1–3', target: 3, prefix: '1–', label: 'days to first concept', description: 'I show the direction quickly so you can see the project early.' },
+    { value: '5+', target: 5, suffix: '+', label: 'inquiry scenarios', description: 'Forms, Telegram, buttons, quizzes, bots, or a simple path to a call.' },
+    { value: 'Contact', label: 'during the project', description: 'I reply at a working pace and warn in advance when your feedback is needed.' },
+  ],
+  values: [
+    { title: 'I analyze before designing', description: 'First I clarify your niche, audience, service, competitors, and the main goal of the site.' },
+    { title: 'I work in stages', description: 'We fix the structure, timeline, tasks, and intermediate results without chaos.' },
+    { title: 'I think about conversion', description: 'Every section should help a visitor understand value, trust you, and leave an inquiry.' },
+    { title: 'I support after launch', description: 'I help with edits, technical questions, and further development after publication.' },
+  ],
+  trust: [
+    { marker: 'CLEAR', title: 'No technical fog', description: 'I explain decisions in plain language: what we do, why it matters, and how it affects inquiries.' },
+    { marker: 'HONEST', title: 'Estimate before start', description: 'After a short discussion, I name the format, rough budget, and timeline. If the task can be solved more simply, I say so.' },
+    { marker: 'FAST', title: 'Early results quickly', description: 'I do not drag projects out: I quickly assemble the structure and first visual direction so you can give feedback.' },
+    { marker: 'CALM', title: 'Launch without abandonment', description: 'After publishing, I check the main scenarios and stay in touch if a text, section, or link needs adjustment.' },
+  ],
+  process: [
+    { number: '01', title: 'Inquiry', description: 'You briefly describe the business, task, timing, and desired result.', delay: 1 },
+    { number: '02', title: 'Analysis', description: 'I study the niche, competitors, current materials, and suggest the best solution format.', delay: 2 },
+    { number: '03', title: 'Structure', description: 'I assemble sections, meanings, inquiry flow, and answers to the client’s main questions.', delay: 3 },
+    { number: '04', title: 'Design', description: 'I create a modern interface for your audience, service, and the level of trust you need.', delay: 4 },
+    { number: '05', title: 'Development', description: 'I build a responsive website, connect forms, Telegram links, and needed interactive elements.', delay: 5 },
+    { number: '06', title: 'Launch', description: 'I check mobile layout, buttons, forms, basic analytics, and publish the project.', delay: 5 },
+  ],
+  faq: [
+    { question: 'How much does a website cost?', answer: 'It depends on the task. A small landing page usually starts from 10,000 RUB; more complex websites, Telegram flows, and turnkey projects are estimated after a short discussion.' },
+    { question: 'How quickly can a project launch?', answer: 'The first structure or design direction can often be shown in 1–3 days. Full launch timing depends on scope: sections, copy, integrations, and edits.' },
+    { question: 'What do you need from me to start?', answer: 'It is enough to explain what you do, who you sell to, which services matter most, and where inquiries should go. If there is no copy yet, I help build the structure and messaging.' },
+    { question: 'Can you build a site without a ready design?', answer: 'Yes. I can create the visual direction, prototype, and final interface. I need business inputs, examples you like, and feedback by stages.' },
+    { question: 'Do you help after launch?', answer: 'Yes. After publishing, I stay in touch: helping with small edits, link checks, forms, Telegram transitions, and further page development.' },
+  ],
+  contact: {
+    benefits: ['Free consultation', 'Estimate within hours', 'Clear launch plan', 'No hidden fees'],
+    projectTypes: ['Website', 'Telegram bot', 'Design', 'Automation', 'Other'],
+    budgets: ['Up to 10,000 RUB', '10,000 – 30,000 RUB', '30,000 – 70,000 RUB', 'Over 70,000 RUB', 'Let’s discuss'],
+  },
+  static: {
+    navAria: 'Main navigation',
+    mobileNavAria: 'Mobile navigation',
+    headerCta: 'Estimate project',
+    heroSubtitle: 'Websites and Telegram flows for service businesses<br>that move clients to inquiry faster',
+    heroDescription: 'I package the offer, design the structure, build the visuals, and connect Telegram scenarios: from the first screen to a clear client action.',
+    heroPrimary: 'Estimate project in Telegram',
+    heroSecondary: 'Portfolio',
+    heroScroll: 'scroll',
+    portfolioTitle: 'Portfolio',
+    audienceTitle: 'Who it fits',
+    audienceText: 'For businesses that need a site to explain value, build trust, and guide a person to contact.',
+    servicesTitle: 'Services',
+    servicesText: 'Everything needed for an online presence: offer packaging, design, development, launch, and Telegram connection.',
+    resultTitle: 'What you get',
+    resultText: 'A result you can show clients, launch in ads, and develop further without rebuilding from scratch.',
+    aboutTitle: 'About the studio',
+    trustTitle: 'Why working with me is easy',
+    trustText: 'A business website is not only design. The task has to be understood quickly, the meaning preserved, and the project calmly launched.',
+    processAria: 'Work process',
+    processTitle: 'How I run a project',
+    faqTitle: 'Questions before starting',
+    faqText: 'Answers to what usually matters before the first inquiry: budget, timing, materials, and support after launch.',
+    contactTitle: 'Tell me about the project',
+    contactText: 'Describe the task and I will suggest the right website format, rough budget, structure, and launch plan.',
+    projectTypeLabel: 'What do you need?',
+    budgetLabel: 'Budget',
+    nameLabel: 'Name',
+    contactLabel: 'Telegram / phone',
+    messageLabel: 'About the project',
+    messagePlaceholder: 'Tell me what website or automation you need…',
+    formSubmit: 'Get project estimate',
+    formNote: 'I will reply in Telegram and suggest the best starting point.',
+    reviewsTitle: 'How I prove quality without loud promises',
+    reviewsBadge: 'Verifiable work signals',
+    reviewsSubtitle: 'I show work through process, portfolio, and launch readiness',
+    reviewsText: 'I show real projects, live links, structure, responsive behavior, and the inquiry path — things you can check before starting.',
+    reviewsProofAria: 'Verifiable work signals',
+    proofOne: 'Portfolio with live links',
+    proofTwo: 'Mobile version and CTA checks',
+    proofThree: 'Telegram as a fast inquiry channel',
+    ctaTitle: 'Let’s launch a website that helps clients choose you',
+    ctaText: 'Thoughtful structure, strong visuals, fast contact, and a clear scenario from the first screen to inquiry.',
+    ctaPrimary: 'Estimate project',
+    ctaSecondary: 'Message in Telegram',
+    ctaNote: 'I reply within a day &middot; I will suggest the best format',
+    proposalLabel: 'NEW PROJECT',
+    proposalStatus: 'TURNKEY',
+    proposalTitle: 'Message me in Telegram — I will estimate the task and suggest a plan',
+    proposalButton: 'Message in Telegram',
+  },
+  ui: {
+    result: 'Result',
+    role: 'Role',
+    viewProject: 'View project',
+    viewProjectAria: 'View project',
+    menuOpen: 'Open menu',
+    menuClose: 'Close menu',
+    copied: 'Inquiry copied. Opening Telegram - paste the message into the chat.',
+    fallback: 'Opening Telegram. Copy the project description from the form and send it in the chat.',
+  },
+  telegramMessage: {
+    title: 'New inquiry from devbymax website',
+    projectType: 'Project type',
+    budget: 'Budget',
+    name: 'Name',
+    contact: 'Contact',
+    message: 'About the project',
+  },
+};
+
+export const defaultLocale = 'ru';
+export const supportedLocales = ['ru', 'en'];
+export const siteContentByLocale = { ru, en };
+export const siteContent = ru;

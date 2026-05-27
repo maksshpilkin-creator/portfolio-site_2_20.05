@@ -1,6 +1,6 @@
 import { appendText, setExternalLink, setReveal } from './dom.js';
 
-export function renderPortfolio(container, items) {
+export function renderPortfolio(container, items, labels) {
   items.forEach((item) => {
     const card = document.createElement('article');
     card.className = 'portfolio-card';
@@ -8,7 +8,7 @@ export function renderPortfolio(container, items) {
 
     const imageLink = document.createElement('a');
     imageLink.className = 'portfolio-card__image';
-    imageLink.setAttribute('aria-label', `Смотреть проект ${item.title}`);
+    imageLink.setAttribute('aria-label', `${labels.viewProjectAria} ${item.title}`);
     setExternalLink(imageLink, item.url);
 
     const image = document.createElement('img');
@@ -42,7 +42,7 @@ export function renderPortfolio(container, items) {
       if (item.outcome) {
         const outcome = document.createElement('p');
         outcome.className = 'portfolio-card__outcome';
-        appendText(outcome, 'span', 'Результат');
+        appendText(outcome, 'span', labels.result);
         outcome.append(document.createTextNode(item.outcome));
         meta.append(outcome);
       }
@@ -50,7 +50,7 @@ export function renderPortfolio(container, items) {
       if (item.role) {
         const role = document.createElement('p');
         role.className = 'portfolio-card__role';
-        appendText(role, 'span', 'Роль');
+        appendText(role, 'span', labels.role);
         role.append(document.createTextNode(item.role));
         meta.append(role);
       }
@@ -66,7 +66,7 @@ export function renderPortfolio(container, items) {
     }
 
     const cta = document.createElement('a');
-    cta.textContent = 'Смотреть проект';
+    cta.textContent = labels.viewProject;
     setExternalLink(cta, item.url);
 
     body.append(copy, cta);

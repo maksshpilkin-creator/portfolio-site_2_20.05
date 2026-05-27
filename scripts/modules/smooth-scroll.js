@@ -1,19 +1,22 @@
 export function initSmoothAnchorScroll() {
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', (event) => {
-      const targetId = anchor.getAttribute('href');
-      if (!targetId || targetId === '#') return;
+  document.addEventListener('click', (event) => {
+    const anchor = event.target instanceof Element
+      ? event.target.closest('a[href^="#"]')
+      : null;
+    if (!(anchor instanceof HTMLAnchorElement)) return;
 
-      const target = document.querySelector(targetId);
-      if (!target) return;
+    const targetId = anchor.getAttribute('href');
+    if (!targetId || targetId === '#') return;
 
-      event.preventDefault();
+    const target = document.querySelector(targetId);
+    if (!target) return;
 
-      const header = document.getElementById('header');
-      const headerHeight = header ? header.offsetHeight : 0;
-      const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    event.preventDefault();
 
-      window.scrollTo({ top, behavior: 'smooth' });
-    });
+    const header = document.getElementById('header');
+    const headerHeight = header ? header.offsetHeight : 0;
+    const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+    window.scrollTo({ top, behavior: 'smooth' });
   });
 }

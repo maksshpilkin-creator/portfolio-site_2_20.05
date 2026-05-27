@@ -29,8 +29,14 @@
   <header class="header" id="header">
     <div class="container-brand header__inner">
       <a href="#" class="header__logo">devbymax</a>
-      <nav class="header__nav" aria-label="Основная навигация" data-render="desktop-nav"></nav>
-      <a href="https://t.me/devbymax" class="header__cta" target="_blank" rel="noopener" data-telegram-link>Оценить проект</a>
+      <nav class="header__nav" aria-label="Основная навигация" data-render="desktop-nav" data-i18n-aria-label="navAria"></nav>
+      <div class="header__actions">
+        <div class="language-switcher" data-language-switcher aria-label="Language">
+          <button class="language-switcher__button" type="button" data-locale-option="ru" aria-pressed="true">RU</button>
+          <button class="language-switcher__button" type="button" data-locale-option="en" aria-pressed="false">EN</button>
+        </div>
+        <a href="https://t.me/devbymax" class="header__cta" target="_blank" rel="noopener" data-telegram-link data-i18n="headerCta">Оценить проект</a>
+      </div>
       <button class="header__burger" id="burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-nav">
         <span></span>
         <span></span>
@@ -39,8 +45,12 @@
     </div>
   </header>
 
-  <div class="mobile-nav" id="mobile-nav" aria-hidden="true" aria-label="Мобильная навигация" data-render="mobile-nav">
-    <a href="https://t.me/devbymax" class="mobile-nav__cta" target="_blank" rel="noopener" data-telegram-link>Оценить проект</a>
+  <div class="mobile-nav" id="mobile-nav" aria-hidden="true" aria-label="Мобильная навигация" data-render="mobile-nav" data-i18n-aria-label="mobileNavAria">
+    <div class="language-switcher language-switcher--mobile" data-language-switcher aria-label="Language">
+      <button class="language-switcher__button" type="button" data-locale-option="ru" aria-pressed="true">RU</button>
+      <button class="language-switcher__button" type="button" data-locale-option="en" aria-pressed="false">EN</button>
+    </div>
+    <a href="https://t.me/devbymax" class="mobile-nav__cta" target="_blank" rel="noopener" data-telegram-link data-i18n="headerCta">Оценить проект</a>
   </div>
 
   <main>
@@ -66,24 +76,24 @@
         </div>
 
         <div class="hero__bottom" data-reveal data-delay="1">
-          <p class="hero__subtitle">Сайты и Telegram-связки для услуг,<br>которые быстрее доводят клиента до заявки</p>
-          <p class="hero__description">Упаковываю оффер, проектирую структуру, собираю визуал и подключаю Telegram-сценарии: от первого экрана до понятного действия клиента.</p>
+          <p class="hero__subtitle" data-i18n-html="heroSubtitle">Сайты и Telegram-связки для услуг,<br>которые быстрее доводят клиента до заявки</p>
+          <p class="hero__description" data-i18n="heroDescription">Упаковываю оффер, проектирую структуру, собираю визуал и подключаю Telegram-сценарии: от первого экрана до понятного действия клиента.</p>
           <div class="hero__buttons">
-            <a href="https://t.me/devbymax" class="btn btn--light" target="_blank" rel="noopener" data-telegram-link>Оценить проект в Telegram</a>
-            <a href="#portfolio" class="btn btn--outline-light">Портфолио</a>
+            <a href="https://t.me/devbymax" class="btn btn--light" target="_blank" rel="noopener" data-telegram-link data-i18n="heroPrimary">Оценить проект в Telegram</a>
+            <a href="#portfolio" class="btn btn--outline-light" data-i18n="heroSecondary">Портфолио</a>
           </div>
         </div>
       </div>
 
       <div class="hero__scroll" aria-hidden="true">
-        <span>листайте</span>
+        <span data-i18n="heroScroll">листайте</span>
         <div class="hero__scroll-bar"><div class="hero__scroll-pip"></div></div>
       </div>
     </section>
 
     <section class="portfolio section-light" id="portfolio">
       <div class="container-brand">
-        <h2 class="section-title section-title--dark" data-reveal>Портфолио</h2>
+        <h2 class="section-title section-title--dark" data-reveal data-i18n="portfolioTitle">Портфолио</h2>
         <div class="portfolio__grid" data-render="portfolio"></div>
       </div>
     </section>
@@ -91,8 +101,8 @@
     <section class="conversion conversion--dark" id="audience">
       <div class="container-brand">
         <div class="section-head section-head--dark" data-reveal>
-          <h2 class="section-title">Кому подойдёт</h2>
-          <p>Если сайт должен не просто существовать, а объяснять ценность, вызывать доверие и приводить человека к контакту.</p>
+          <h2 class="section-title" data-i18n="audienceTitle">Кому подойдёт</h2>
+          <p data-i18n="audienceText">Если сайт должен не просто существовать, а объяснять ценность, вызывать доверие и приводить человека к контакту.</p>
         </div>
         <div class="conversion-grid conversion-grid--four conversion-grid--dark" data-render="audiences"></div>
       </div>
@@ -101,8 +111,8 @@
     <section class="services section-light" id="services">
       <div class="container-brand">
         <div class="section-head" data-reveal>
-          <h2 class="section-title section-title--dark">Услуги</h2>
-          <p>Всё, что нужно для присутствия в интернете: упаковка предложения, дизайн, разработка, запуск и связка с Telegram.</p>
+          <h2 class="section-title section-title--dark" data-i18n="servicesTitle">Услуги</h2>
+          <p data-i18n="servicesText">Всё, что нужно для присутствия в интернете: упаковка предложения, дизайн, разработка, запуск и связка с Telegram.</p>
         </div>
         <div class="services__grid" data-render="services"></div>
       </div>
@@ -111,8 +121,8 @@
     <section class="conversion conversion--compact section-light" id="result">
       <div class="container-brand">
         <div class="section-head" data-reveal>
-          <h2 class="section-title section-title--dark">Что вы получите</h2>
-          <p>Результат, который можно показать клиентам, запустить в рекламу и развивать дальше без переделки с нуля.</p>
+          <h2 class="section-title section-title--dark" data-i18n="resultTitle">Что вы получите</h2>
+          <p data-i18n="resultText">Результат, который можно показать клиентам, запустить в рекламу и развивать дальше без переделки с нуля.</p>
         </div>
         <div class="conversion-grid conversion-grid--three" data-render="deliverables"></div>
       </div>
@@ -120,7 +130,7 @@
 
     <section class="about section-light" id="about">
       <div class="container-brand">
-        <h2 class="section-title section-title--dark" data-reveal>О студии</h2>
+        <h2 class="section-title section-title--dark" data-reveal data-i18n="aboutTitle">О студии</h2>
         <div class="stats-grid" data-reveal data-delay="1" data-count-stats data-render="stats"></div>
         <div class="values-grid" data-reveal data-delay="2" data-render="values"></div>
       </div>
@@ -138,16 +148,16 @@
     <section class="conversion conversion--dark" id="trust">
       <div class="container-brand">
         <div class="section-head section-head--dark" data-reveal>
-          <h2 class="section-title">Почему со мной удобно</h2>
-          <p>Сайт для бизнеса — это не только дизайн. Важно быстро понять задачу, не потерять смысл и спокойно довести проект до запуска.</p>
+          <h2 class="section-title" data-i18n="trustTitle">Почему со мной удобно</h2>
+          <p data-i18n="trustText">Сайт для бизнеса — это не только дизайн. Важно быстро понять задачу, не потерять смысл и спокойно довести проект до запуска.</p>
         </div>
         <div class="conversion-grid conversion-grid--four conversion-grid--dark" data-render="trust"></div>
       </div>
     </section>
 
-    <section class="process" id="process" aria-label="Процесс работы">
+    <section class="process" id="process" aria-label="Процесс работы" data-i18n-aria-label="processAria">
       <div class="container-brand">
-        <h2 class="process__heading" data-reveal>Как я веду проект</h2>
+        <h2 class="process__heading" data-reveal data-i18n="processTitle">Как я веду проект</h2>
         <div class="process__list" data-render="process"></div>
       </div>
     </section>
@@ -156,8 +166,8 @@
       <div class="container-brand faq__inner">
         <div class="faq__head" data-reveal>
           <span class="section-kicker">FAQ</span>
-          <h2 class="section-title section-title--dark">Вопросы перед стартом</h2>
-          <p>Ответы на то, что обычно важно понять до первой заявки: бюджет, сроки, материалы и поддержка после запуска.</p>
+          <h2 class="section-title section-title--dark" data-i18n="faqTitle">Вопросы перед стартом</h2>
+          <p data-i18n="faqText">Ответы на то, что обычно важно понять до первой заявки: бюджет, сроки, материалы и поддержка после запуска.</p>
         </div>
         <div class="faq__list" data-render="faq"></div>
       </div>
@@ -166,35 +176,35 @@
     <section class="contact" id="contact">
       <div class="container-brand contact__inner">
         <div class="contact__info" data-reveal>
-          <h2>Расскажите о проекте</h2>
-          <p>Опишите задачу — я предложу подходящий формат сайта, примерный бюджет, структуру и понятный план запуска.</p>
+          <h2 data-i18n="contactTitle">Расскажите о проекте</h2>
+          <p data-i18n="contactText">Опишите задачу — я предложу подходящий формат сайта, примерный бюджет, структуру и понятный план запуска.</p>
           <ul data-render="contact-benefits"></ul>
         </div>
         <form class="contact-form" action="https://t.me/devbymax" method="get" data-contact-form data-reveal data-delay="1">
           <div class="form-group">
-            <span class="form-label" id="project-type-label">Что нужно?</span>
+            <span class="form-label" id="project-type-label" data-i18n="projectTypeLabel">Что нужно?</span>
             <div class="chip-grid" role="radiogroup" aria-labelledby="project-type-label" data-chip-group data-chip-name="projectType" data-render="project-types"></div>
           </div>
           <div class="form-group">
-            <span class="form-label" id="budget-label">Бюджет</span>
+            <span class="form-label" id="budget-label" data-i18n="budgetLabel">Бюджет</span>
             <div class="chip-grid" role="radiogroup" aria-labelledby="budget-label" data-chip-group data-chip-name="budget" data-render="budgets"></div>
           </div>
           <div class="form-grid">
             <label>
-              <span>Имя</span>
+              <span data-i18n="nameLabel">Имя</span>
               <input type="text" name="name" autocomplete="name" required>
             </label>
             <label>
-              <span>Telegram / телефон</span>
+              <span data-i18n="contactLabel">Telegram / телефон</span>
               <input type="text" name="contact" autocomplete="tel" required>
             </label>
           </div>
           <label class="form-message">
-            <span>О проекте</span>
-            <textarea name="message" rows="5" maxlength="1000" required placeholder="Расскажите, какой сайт или автоматизация вам нужна…"></textarea>
+            <span data-i18n="messageLabel">О проекте</span>
+            <textarea name="message" rows="5" maxlength="1000" required placeholder="Расскажите, какой сайт или автоматизация вам нужна…" data-i18n-placeholder="messagePlaceholder"></textarea>
           </label>
-          <button type="submit" class="btn btn--dark btn--full">Получить оценку проекта</button>
-          <p class="contact-form__note" data-form-status aria-live="polite">Отвечу в Telegram и подскажу, с чего лучше начать.</p>
+          <button type="submit" class="btn btn--dark btn--full" data-i18n="formSubmit">Получить оценку проекта</button>
+          <p class="contact-form__note" data-form-status aria-live="polite" data-i18n="formNote">Отвечу в Telegram и подскажу, с чего лучше начать.</p>
         </form>
       </div>
     </section>
@@ -202,23 +212,23 @@
     <section class="reviews section-light" id="reviews">
       <div class="container-brand">
         <span class="section-kicker" data-reveal>Proof</span>
-        <h2 class="section-title section-title--dark" data-reveal data-delay="1">Как проверяю качество без громких обещаний</h2>
+        <h2 class="section-title section-title--dark" data-reveal data-delay="1" data-i18n="reviewsTitle">Как проверяю качество без громких обещаний</h2>
         <div class="reviews__empty reviews__proof" data-reveal data-delay="2">
-          <span class="reviews__badge"><span></span> Проверяемые признаки работы</span>
-          <h3>Показываю работу через процесс, портфолио и готовность к запуску</h3>
-          <p>Показываю реальные проекты, живые ссылки, структуру, адаптив и путь заявки — то, что можно проверить до старта.</p>
-          <ul class="reviews__proof-grid" aria-label="Проверяемые признаки работы">
+          <span class="reviews__badge"><span></span> <span data-i18n="reviewsBadge">Проверяемые признаки работы</span></span>
+          <h3 data-i18n="reviewsSubtitle">Показываю работу через процесс, портфолио и готовность к запуску</h3>
+          <p data-i18n="reviewsText">Показываю реальные проекты, живые ссылки, структуру, адаптив и путь заявки — то, что можно проверить до старта.</p>
+          <ul class="reviews__proof-grid" aria-label="Проверяемые признаки работы" data-i18n-aria-label="reviewsProofAria">
             <li>
               <strong>01</strong>
-              <span>Портфолио с живыми ссылками</span>
+              <span data-i18n="proofOne">Портфолио с живыми ссылками</span>
             </li>
             <li>
               <strong>02</strong>
-              <span>Проверка мобильной версии и CTA</span>
+              <span data-i18n="proofTwo">Проверка мобильной версии и CTA</span>
             </li>
             <li>
               <strong>03</strong>
-              <span>Telegram как быстрый канал заявки</span>
+              <span data-i18n="proofThree">Telegram как быстрый канал заявки</span>
             </li>
           </ul>
         </div>
@@ -229,24 +239,24 @@
       <div class="cta__bg" aria-hidden="true"></div>
       <div class="container-brand cta__inner">
         <div class="cta__content" data-reveal>
-          <h2>Запустим сайт, который помогает клиенту выбрать вас</h2>
-          <p>Продуманная структура, сильный визуал, быстрый контакт и понятный сценарий от первого экрана до заявки.</p>
+          <h2 data-i18n="ctaTitle">Запустим сайт, который помогает клиенту выбрать вас</h2>
+          <p data-i18n="ctaText">Продуманная структура, сильный визуал, быстрый контакт и понятный сценарий от первого экрана до заявки.</p>
           <div class="cta__buttons">
-            <a href="#contact" class="btn btn--light cta__primary">Оценить проект</a>
-            <a href="https://t.me/devbymax" class="btn btn--outline-light cta__secondary" target="_blank" rel="noopener" data-telegram-link>Написать в Telegram</a>
+            <a href="#contact" class="btn btn--light cta__primary" data-i18n="ctaPrimary">Оценить проект</a>
+            <a href="https://t.me/devbymax" class="btn btn--outline-light cta__secondary" target="_blank" rel="noopener" data-telegram-link data-i18n="ctaSecondary">Написать в Telegram</a>
           </div>
-          <span class="cta__note">Отвечу в течение дня &middot; Подскажу лучший формат</span>
+          <span class="cta__note" data-i18n-html="ctaNote">Отвечу в течение дня &middot; Подскажу лучший формат</span>
         </div>
 
         <div class="cta__visual" data-reveal data-delay="1">
           <div class="proposal-card">
             <div class="proposal-card__topline">
-              <span>НОВЫЙ ПРОЕКТ</span>
-              <span class="proposal-card__status">ПОД КЛЮЧ</span>
+              <span data-i18n="proposalLabel">НОВЫЙ ПРОЕКТ</span>
+              <span class="proposal-card__status" data-i18n="proposalStatus">ПОД КЛЮЧ</span>
             </div>
             <div class="proposal-card__body">
-              <h3>Напишите в Telegram — оценю задачу и предложу план</h3>
-              <a href="https://t.me/devbymax" class="proposal-card__button" target="_blank" rel="noopener" data-telegram-link><span>Написать в Telegram</span></a>
+              <h3 data-i18n="proposalTitle">Напишите в Telegram — оценю задачу и предложу план</h3>
+              <a href="https://t.me/devbymax" class="proposal-card__button" target="_blank" rel="noopener" data-telegram-link><span data-i18n="proposalButton">Написать в Telegram</span></a>
             </div>
           </div>
         </div>

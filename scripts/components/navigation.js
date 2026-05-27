@@ -7,6 +7,7 @@ export function bindTelegramLinks(href) {
 }
 
 export function renderNavigation(container, items, linkClassName) {
+  container.querySelectorAll(`.${linkClassName}`).forEach((link) => link.remove());
   const insertBeforeElement = container.querySelector('.mobile-nav__cta');
 
   items.forEach((item) => {

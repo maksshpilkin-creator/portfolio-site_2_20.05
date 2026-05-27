@@ -36,6 +36,12 @@
   gap: 32px;
 }
 
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .header__link {
   position: relative;
   color: rgba(255, 255, 255, 0.65);
@@ -45,30 +51,10 @@
   transition: color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.header__link::after {
-  content: "";
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 6px;
-  height: 1px;
-  background: currentColor;
-  opacity: 0;
-  transform: scaleX(0.6);
-  transform-origin: center;
-  transition: opacity var(--transition-fast), transform var(--transition-fast);
-}
-
 .header__link:hover,
 .header__link.is-active {
   color: var(--white);
   background: rgba(255, 255, 255, 0.12);
-}
-
-.header__link:hover::after,
-.header__link.is-active::after {
-  opacity: 0.46;
-  transform: scaleX(1);
 }
 
 .header__link.is-active {
@@ -78,10 +64,50 @@
 .header__link:focus-visible,
 .header__burger:focus-visible,
 .header__cta:focus-visible,
+.language-switcher__button:focus-visible,
 .mobile-nav__link:focus-visible,
 .mobile-nav__cta:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.82);
   outline-offset: 4px;
+}
+
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-control);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.language-switcher__button {
+  min-width: 42px;
+  min-height: 34px;
+  padding: 8px 10px;
+  border-radius: calc(var(--radius-control) - 4px);
+  color: rgba(255, 255, 255, 0.62);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  transition: color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.language-switcher__button:hover {
+  color: var(--white);
+}
+
+.language-switcher__button.is-active {
+  background: var(--white);
+  color: var(--black);
+}
+
+.language-switcher__button:active {
+  transform: scale(0.96);
 }
 
 .header__cta {
@@ -189,6 +215,10 @@
   letter-spacing: -0.04em;
   line-height: 0.95;
   transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.language-switcher--mobile {
+  margin-bottom: 8px;
 }
 
 .mobile-nav__link:hover {
