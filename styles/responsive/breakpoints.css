@@ -1,14 +1,14 @@
 @media (min-width: 768px) {
   .container-brand {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: max(40px, env(safe-area-inset-left));
+    padding-right: max(40px, env(safe-area-inset-right));
   }
 }
 
 @media (min-width: 1280px) {
   .container-brand {
-    padding-left: 64px;
-    padding-right: 64px;
+    padding-left: max(64px, env(safe-area-inset-left));
+    padding-right: max(64px, env(safe-area-inset-right));
   }
 }
 
@@ -283,8 +283,8 @@
 
 @media (max-width: 480px) {
   .container-brand {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
   }
 
   .header__logo {

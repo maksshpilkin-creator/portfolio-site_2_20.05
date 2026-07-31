@@ -42,6 +42,8 @@
 }
 
 html {
+  /* Decorative hero and CTA layers intentionally extend beyond their sections. */
+  overflow-x: clip;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -52,6 +54,7 @@ body {
   background: var(--bg-light);
   color: var(--electric);
   font-family: var(--font-body);
+  /* Fallback for browsers without overflow: clip support. */
   overflow-x: hidden;
 }
 

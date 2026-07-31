@@ -1,13 +1,24 @@
 function initHeaderScroll() {
   const header = document.getElementById('header');
   if (!header) return;
+  let frameId = 0;
+  let isScrolled = null;
+
+  function updateHeaderState() {
+    frameId = 0;
+    const nextScrolledState = window.scrollY > 20;
+    if (nextScrolledState === isScrolled) return;
+
+    isScrolled = nextScrolledState;
+    header.classList.toggle('scrolled', isScrolled);
+  }
 
   function onScroll() {
-    header.classList.toggle('scrolled', window.scrollY > 20);
+    if (!frameId) frameId = requestAnimationFrame(updateHeaderState);
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  updateHeaderState();
 }
 
 function initActiveNav() {

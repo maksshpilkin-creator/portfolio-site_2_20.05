@@ -70,7 +70,7 @@
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
-.reviews__badge span {
+.reviews__badge > span:first-child {
   width: 6px;
   height: 6px;
   border-radius: var(--radius-control);

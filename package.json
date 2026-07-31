@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "check": "node scripts/tools/check-js.mjs",
+    "test:browser": "node --test tests/browser-audit.mjs",
     "typecheck": "tsc --noEmit",
     "validate": "npm run check && npm run typecheck"
   },
   "devDependencies": {
+    "playwright": "^1.62.0-alpha-1783623505000",
     "typescript": "^5.5.0"
   }
 }
