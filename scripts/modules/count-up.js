@@ -1,3 +1,20 @@
+let countObserver = null;
+const activeAnimationFrames = new Set();
+
+function scheduleFrame(callback) {
+  let frameId = 0;
+  frameId = requestAnimationFrame((timestamp) => {
+    activeAnimationFrames.delete(frameId);
+    callback(timestamp);
+  });
+  activeAnimationFrames.add(frameId);
+}
+
+function cancelActiveAnimations() {
+  activeAnimationFrames.forEach((frameId) => cancelAnimationFrame(frameId));
+  activeAnimationFrames.clear();
+}
+
 function formatNumber(element, value) {
   const prefix = element.getAttribute('data-count-prefix') || '';
   const suffix = element.getAttribute('data-count-suffix') || '';
@@ -27,13 +44,17 @@ function animateNumber(element, delay, duration) {
 
     formatNumber(element, current);
 
-    if (progress < 1) requestAnimationFrame(tick);
+    if (progress < 1) scheduleFrame(tick);
   }
 
-  requestAnimationFrame(tick);
+  scheduleFrame(tick);
 }
 
 export function initCountUp() {
+  countObserver?.disconnect();
+  countObserver = null;
+  cancelActiveAnimations();
+
   const statsBlock = document.querySelector('[data-count-stats]');
   if (!statsBlock) return;
 
@@ -61,13 +82,14 @@ export function initCountUp() {
     return;
   }
 
-  const observer = new IntersectionObserver((entries) => {
+  countObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       startCountUp();
-      observer.disconnect();
+      countObserver?.disconnect();
+      countObserver = null;
     });
   }, { threshold: 0.3 });
 
-  observer.observe(statsBlock);
+  countObserver.observe(statsBlock);
 }

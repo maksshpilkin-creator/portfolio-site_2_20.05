@@ -112,8 +112,8 @@
 }
 
 @keyframes kickerPulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 14px rgba(255, 255, 255, 0.52); }
-  50% { opacity: 0.46; box-shadow: 0 0 5px rgba(255, 255, 255, 0.18); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.46; }
 }
 
 .hero__title-wrap {

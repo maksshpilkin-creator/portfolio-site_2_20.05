@@ -1,5 +1,10 @@
+let revealObserver = null;
+
 export function initReveal() {
-  const reveals = document.querySelectorAll('[data-reveal]');
+  revealObserver?.disconnect();
+  revealObserver = null;
+
+  const reveals = document.querySelectorAll('[data-reveal]:not([data-revealed="true"])');
   if (!reveals.length) return;
 
   if (!('IntersectionObserver' in window)) {
@@ -7,13 +12,13 @@ export function initReveal() {
     return;
   }
 
-  const observer = new IntersectionObserver((entries) => {
+  revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       entry.target.setAttribute('data-revealed', 'true');
-      observer.unobserve(entry.target);
+      revealObserver?.unobserve(entry.target);
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  reveals.forEach((element) => observer.observe(element));
+  reveals.forEach((element) => revealObserver?.observe(element));
 }
